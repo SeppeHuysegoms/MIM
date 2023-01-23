@@ -7,15 +7,15 @@
   --color-beige: #FEF9EF;
 
   /*font sizes mobile*/
-    --font-size-h1:  clamp(1.7rem, calc(1.5rem + 1.75vh), 6rem);
-    --font-size-intro:  clamp(1.375rem, calc(1.1rem + 1.25vh), 4rem);
-    --font-size-h2: 2rem;
-    --fontsize-h2-span: 3rem;
-    --font-size-h3: 1.5rem;
-    --fontsize-h3-span: 3rem;
-    --font-size-h4: 1.25rem;
-    --font-size-p: 1rem;
-    --font-size-button: 0.75rem;
+    --font-size-mobile-h1:  clamp(1.7rem, calc(1rem + 3vh), 6rem);
+    --font-size-mobile-intro:  clamp(1.375rem, calc(0.7rem + 3.25vw), 4rem);
+    --font-size-mobile-h2: clamp(2rem, calc(1.5rem + 3vw), 6rem);
+    --fontsize-mobile-h2-span: 3rem;
+    --font-size-mobile-h3: 1.5rem;
+    --fontsize-mobile-h3-span: 3rem;
+    --font-size-mobile-h4: 1.25rem;
+    --font-size-mobile-p: clamp(1rem, calc(0.9rem + 2vw), 4rem);;
+    --font-size-mobile-button: 0.75rem;
 
 }
 
@@ -23,7 +23,6 @@
 body{
     background-color: var(--color-beige);
     overflow-x: hidden;
-    color: red;
 }
 
 h1,
@@ -38,37 +37,78 @@ font-style: normal;
 header{
     display: flex;
   flex-direction: column-reverse;
-  height: 100vh;
+}
+
+.headerContent{
+    width: 100vw;
+    height: 80vh;
+    margin-bottom: 10vh;
 }
 h1{
 color: var(--color-blue);
-font-size: var(--font-size-h1);
-max-width: 30%;
-margin-left: 45%;
-line-height: 1.1;
+font-size: var(--font-size-mobile-h1);
+white-space: pre-line;
+line-height: 1.05;
+margin: 0 2vw 0 43vw;
+max-width: 55vw;
 }
 .headerImage{
  width: 100vw;
- height: auto;
- margin-top: -9%;
+ height: 57.5vh;
+ margin: -9% auto 0;
 }
 
 .navLogo{
- max-width: 7%;
+ max-width: 8vw;
  height: auto;
-    margin: 3% 0 2vh 5%;
+margin: 3vh 0 2vh 3vh;
 }
 .headerIntro{
     font-family: bc-novatica-cyr, sans-serif;
 font-weight: 600;
 font-style: normal;
-font-size: var(--font-size-intro);
+font-size: var(--font-size-mobile-intro);
 color: #124B91;
 word-spacing: 100vw;
-margin: -13% 0% 0% 3%;
+margin: -4vh 0 0 3vh;
 }
 .menu{
     display: none;
+}
+
+p{
+    font-family: bio-sans, sans-serif;
+font-weight: 300;
+font-style: normal;
+color: var(--color-black);
+font-size: var(--font-size-mobile-p);
+max-width: 87.5vw;
+margin: 0 auto;
+line-height: 1.2;
+}
+
+.beeld2>p{
+    text-align: center;
+}
+
+.beeld2Image1, .beeld2Image2{
+    max-height: 25vh;
+    width: auto;
+}
+
+.beeld2Image2{
+    margin-left: 60vw;
+}
+
+h2{
+    color: #124B91;
+    font-size: var(--font-size-mobile-h2);
+}
+
+h2>span{
+font-size: var(--fontsize-mobile-h2-span);
+color: var(--color-beige);
+outline: #6AD727 2px;
 }
 
 

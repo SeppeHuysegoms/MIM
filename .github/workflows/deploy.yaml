@@ -2,16 +2,15 @@
 # https://swharden.com/blog/2022-04-24-github-actions-ftp/
 # https://www.voorhoede.nl/en/blog/super-fast-npm-install-on-github-actions/
 
-
 name: 🚀 FTP Deploy
 on:
   push:
     branches:
-      - main 
+      - main
   workflow_dispatch:
-  
+
 env:
-  WEB_PATH: ~/www/MIM
+  WEB_PATH: ~/www/mim
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
@@ -22,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       - name: Cache dependencies
         uses: actions/cache@v3
