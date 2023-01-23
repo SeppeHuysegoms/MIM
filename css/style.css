@@ -109,6 +109,7 @@ h2>span{
 font-size: var(--fontsize-mobile-h2-span);
 color: var(--color-beige);
 outline: #6AD727 2px;
+text-align: center;
 }
 
 
