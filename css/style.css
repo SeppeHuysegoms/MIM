@@ -355,8 +355,11 @@ header {
     color: var(--color-white);
     text-align: center;
 }
+.beeld7{
+    overflow-x: hidden;
+}
 h3> .beeld7TitelHigh,
-h3> .beeld721TitelHigh2{
+h3> .beeld7TitelHigh2{
     color: #124b91; 
     text-align: center;
 margin: 0 auto;
@@ -430,6 +433,104 @@ margin: 0 auto;
 
 .onderdeelTekst>h4{
     margin-bottom: 3vh;
+}
+
+/*beeld9*/
+
+.beeld9{
+    margin: 10vh 0;
+    display: grid;
+    grid-template-columns: 6.25vw 87.5vw 6.25vw;
+    grid-template-rows: 80vh 10vh 80vh;
+}
+.beeld9Image1{
+    grid-row: 1/2;
+    grid-column: 3;
+    height: 90vh;
+    width: 6.25vw;
+}
+
+.beeld9Image2{
+    grid-row: 2/-1;
+    grid-column: 1;
+    align-self: end;
+    justify-self: end;
+    height: 90vh;
+    width: 6.25vw;
+}
+.beeld9Deel1{
+    grid-row: 1/2;
+    grid-column: 2;
+    align-self: center;
+    justify-self: end;
+    text-align: right;
+    width: 87.5vw;
+    margin-right: 5vw;
+}
+
+.beeld9Deel1>p{
+    display: inline-block;
+    max-width: 80vw;
+    margin: 2vh 0 0;
+    text-align: right;
+}
+
+.beeld9Deel2{
+    grid-row: 3/-1;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+    width: 87.5vw;
+    margin-left: 7.5vw;
+}
+
+.beeld9Deel2>p{
+    display: inline-block;
+    margin: 2vh 0 0;
+    max-width: 80vw;
+}
+
+.beeld9Deel1Image{
+    width: 80vw;
+    margin-right: 7.5vw;
+}
+
+
+.beeld9Deel2Images{
+    display: grid;
+    grid-template-columns: 50vw 35vw;
+    grid-template-rows: 20vh 10vh;
+    grid-gap: 2vw;
+    margin: 0 0 3vh;
+}
+.beeld9Deel2Image{
+    width: 60vw;
+    margin-left: -7.5vw;
+    rotate: 60deg;
+    grid-row: 1/-1;
+    grid-column: 1;
+}
+
+.beeld9Deel2Image2{
+    max-width: 30vw;
+    rotate: 80deg;
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
+}
+
+/*beeld10*/
+.beeld10{
+    text-align: center;
+}
+
+.beeld10>h4{
+    margin: 10vh 0 3vh;
+}
+
+.beeld10Image{
+    max-width: 90vw;
+    margin: 8vh auto;
 }
 
 
