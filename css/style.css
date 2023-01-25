@@ -17,7 +17,7 @@
   --font-size-mobile-h4: clamp(1.7rem, calc(1.5rem + 2vw), 6rem);
   --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 4rem);
   --font-size-mobile-instructies: clamp(1rem, calc(1rem + 1.55vw), 4rem);
-  --font-size-mobile-button: 0.75rem;
+  --font-size-mobile-button: clamp(1.2rem, calc(1rem + 1.8vw), 5rem);
 }
 
 body {
@@ -60,7 +60,9 @@ h2 {
   text-align: center;
 }
 
-h3 {
+h3,
+.beeld14TitelDown,
+.beeld15TitelDown {
   color: #124b91;
   font-size: var(--font-size-mobile-h3);
 }
@@ -70,7 +72,9 @@ h4 {
   font-size: var(--font-size-mobile-h4);
 }
 
-h3 > .highlightTitel {
+h3 > .highlightTitel,
+.beeld14TitelHigh,
+.beeld15TitelHigh {
   font-size: var(--fontsize-mobile-h3-span);
   color: var(--color-beige);
   -webkit-text-stroke-width: 0.15vh;
@@ -623,6 +627,250 @@ color: var(--color-green);
     justify-self: center;
     text-align: end;
 }
+
+/*beeld13*/
+.beeld13{
+    margin: 10vh 0;
+    display: grid;
+    grid-template-columns: 6.25vw 87.5vw 6.25vw;
+    grid-template-rows: 40vw 130vw 55vw 45vw;
+}
+
+.beeld13Image1{
+    grid-row: 1;
+    grid-column: 2/-1;
+    height: 20vh;
+    width:auto;
+    justify-self: end;
+    align-self: center;
+}
+
+.beeld13Image2{
+    grid-row: 4;
+    grid-column: 1/3;
+    height: 38vw;
+    width:auto;
+    justify-self: start;
+    align-self: end;
+}
+
+.beeld13Tekst{
+    grid-row: 2;
+    grid-column: 2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 0 5vw;
+}
+
+.beeld13Tekst>p{
+max-width: 90vw;
+    margin: 2vh 0 0;
+}
+
+.fragmenten>img{
+    width: 12.5vw;
+}
+
+.fragmenten{
+    margin-top: 7vw;
+    display: flex;
+    gap: 7vw;
+}
+
+.button{
+    font-size: var(--font-size-mobile-button);
+    max-height: 20vw;
+    padding: 5vw 15vw;
+    border:  var(--color-green) 1.5vw solid;
+    color: #6ad727;
+    font-weight: 600;
+}
+
+.buttonStart{
+    grid-column: 2;
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+}
+
+.buttonIers{
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    justify-self: center;
+}
+
+.buttonSchots{
+    color: var(--color-blue);
+    border:  var(--color-blue) 1.5vw solid;
+    grid-column: 2;
+    grid-row: 3;
+    align-self: end;
+    justify-self: center;
+}
+
+/*beeld14*/
+.beeld14{
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 40vw 20vw 115vw 40vw;
+    overflow-x: hidden;
+}
+.beeld14Image2{
+ max-width: 100vw;
+ grid-row: 4;
+ align-self: end;
+ justify-self: start;
+}
+
+.beeld14Image1{
+ width: 40vw;
+ grid-row: 1/2;
+ align-self: start;
+ justify-self: end;
+ margin-right: -7.5vw;
+}
+
+.beeld14Tekst{
+    grid-row: 2/4;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 0 5vw;
+}
+
+.beeld14Tekst>h2{
+    display: grid;
+grid-template-columns: 50vw 40vw ;
+grid-template-rows: 17.55vw 15vw;
+
+}
+
+.beeld14TitelDown{
+    grid-row: 2;
+    grid-column: 2;
+}
+.beeld14TitelHigh{
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.beeld14Tekst > p{
+    text-align: start;
+}
+
+/*beeld15*/
+.beeld15{
+    background-color: var(--color-blue);
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 30vw 150vw 40vw ;
+    overflow-x: hidden;
+}
+
+.beeld15Image1{
+    grid-row: 1;
+    grid-column: 1;
+    width: 125vw;
+    justify-self: end;
+}
+
+.beeld15Image2{
+    grid-row: 3;
+    grid-column: 1;
+    width: 130vw;
+    justify-self: start;
+}
+
+.beeld15Tekst{
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 0 5vw;
+}
+
+.beeld15Tekst>p{
+    text-align: center;
+    color: var(--color-white);
+    margin-bottom: 10vw;
+}
+
+.beeld15Tekst>h2{
+    display: grid;
+    justify-content: center;
+grid-template-columns: 55vw 40vw ;
+grid-template-rows: 15vw 15vw;
+}
+
+.beeld15Tekst>.button{
+ color: var(--color-green);
+ max-width: 70vw;
+ margin: 0 auto;
+}
+
+.beeld15TitelHigh{
+font-size: var(--fontsize-mobile-h3-spanVerschil);
+    color: var(--color-blue);
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.beeld15TitelDown{
+color: var(--color-white);
+grid-row: 2;
+grid-column: 2;
+}
+
+
+footer{
+    background-color: var(--color-blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15vh 15vh;
+}
+
+.footerInfo{
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+.footerInfo>p{
+    color: var(--color-green);
+    font-size: var(--font-size-mobile-h4);
+font-weight: 600;
+text-align: center;
+}
+
+.footerImage{
+    max-width: 12vw;
+    margin: 0 1vw;
+    text-align: center;
+}
+
+.footerSocialmedia{
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    gap: 5vw;
+}
+
+.socialImage{
+    max-width: 20vw;
+
+}
+
+
+
+
+
+
 
 
 
