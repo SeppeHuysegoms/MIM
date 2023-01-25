@@ -17,7 +17,7 @@
   --fontsize-mobile-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 17rem);
   --fontsize-mobile-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 17rem);
   --font-size-mobile-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
-  --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 4rem);
+  --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 5rem);
   --font-size-mobile-instructies: clamp(1rem, calc(1rem + 1.55vw), 4rem);
   --font-size-mobile-button: clamp(1.2rem, calc(1rem + 2vw), 15rem);
 }
@@ -143,7 +143,7 @@ header {
 
 /*Beeld2*/
 
-.beeld2 > p {
+.beeld2Tekst > p {
   text-align: center;
   margin-top: 2.5vh;
 }
@@ -158,7 +158,8 @@ header {
   margin-bottom: 7.5vh;
 }
 .beeld2Image2 {
-  margin-left: 50vw;
+  float: right;
+  margin-right: -7vw;
   margin-top: 3vh;
 }
 .beeld2Image1 {
@@ -1043,6 +1044,21 @@ margin: 0;
 
 
 @media screen and (min-width: 1000px) {
+
+    .beeld2Titel{
+        grid-template-columns: 35vw 30vw;
+    }
+    p{
+        max-width: 70vw;
+    }
+    .beeld2Image1, .beeld2Image2 {
+    width: 40vw;
+    height: auto;
+    max-height: 50vh;
+}
+
+
+    
     .headerContent{
     grid-column: 2;
     margin-top: 10vh;
@@ -1114,6 +1130,7 @@ margin-top: 10vh;
     display: flex;
     gap: 2vh;
     max-height: 5vw;
+    max-width: 80vh;
     margin: 2vw 0 0;
     border-bottom: solid var(--color-blue) 4px;
 }
@@ -1121,7 +1138,7 @@ margin-top: 10vh;
 .menu>li{
     display: inline-block;
     white-space: nowrap;
-    padding: 0vw 2vw 5vw;
+    padding: 0vw 3vh 5vw;
     
 }
 .navLogo{
@@ -1154,6 +1171,24 @@ rotate: 90deg;
     padding: 0;
 }
 
+    .beeld2Titel{
+        grid-template-columns: 30vw 25vw;
+            grid-template-rows: 18vh;
+    }
+
+}
+
+@media screen and (min-width: 1600px) {
+    .beeld2{
+           display: flex;
+           align-items: center;
+    gap: 5vw;
+    }
+
+     .beeld2Titel{
+        grid-template-columns: 30vw 25vw;
+            grid-template-rows: 18vw;
+    }
 }
 
 
