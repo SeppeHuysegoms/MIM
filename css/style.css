@@ -17,8 +17,8 @@
   --fontsize-mobile-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 13rem);
   --fontsize-mobile-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 14rem);
   --font-size-mobile-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
-  --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 2rem);
-  --font-size-mobile-instructies: clamp(1rem, calc(1rem + 1.55vw), 4rem);
+  --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 1.3rem);
+  --font-size-mobile-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
   --font-size-mobile-button: clamp(1.2rem, calc(1rem + 2vw), 8rem);
 }
 
@@ -110,7 +110,9 @@ header {
   display: flex;
   flex-direction: column-reverse;
 }
-
+.taal {
+  display: none;
+}
 .headerContent {
   width: 100vw;
   height: 80vh;
@@ -321,7 +323,7 @@ header {
 }
 
 .beeld5Tekst {
-  padding: 12vh 0 25vh;
+  padding: 20vw 0 25vh;
   background-image: url(../assets/beeld5BackgroundTekst.png);
   background-repeat: no-repeat, repeat;
   background-position: bottom center;
@@ -344,7 +346,7 @@ header {
 .test1 {
   display: grid;
   grid-template-columns: 10vw 30vw 50vw 10vw;
-  grid-template-rows: 35vh 6vh 2vh 6vh;
+  grid-template-rows: 60vw 12vw 4vw 12vw;
   justify-content: center;
   margin-bottom: 9vh;
 }
@@ -412,7 +414,7 @@ header {
   align-self: start;
 }
 
-.chapter12 > p {
+.chapter12Tekst > p {
   margin-bottom: 4vh;
 }
 
@@ -448,6 +450,7 @@ header {
   text-align: start;
   rotate: -14deg;
   margin: 0 2vw;
+  z-index: 1;
 }
 
 .chapter2Intro > h2,
@@ -1003,6 +1006,9 @@ footer > p {
 }
 
 @media screen and (min-width: 500px) {
+  .headerContent {
+    height: 120vw;
+  }
   .headerImage {
     display: block;
     width: 85vw;
@@ -1017,9 +1023,38 @@ footer > p {
   .headerIntro {
     margin: -15vh 0 0 8vw;
   }
+  .beeld5Tekst > p {
+    max-width: 75vw;
+  }
+
+  .chapter2Intro {
+    background-image: url(../assets/backgroundIntro2Desk.png);
+    background-position: center;
+    grid-template-rows: 110vw;
+    grid-template-columns: 100vw;
+  }
+
+  .chapter2Intro > h2 {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: right;
+    margin-left: 5vw;
+    align-self: end;
+  }
+
+  .chapter2IntroImage {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+    width: 15vw;
+  }
 }
 
 @media screen and (min-width: 800px) {
+  .headerContent {
+    height: 70vw;
+  }
   .headerImage {
     display: block;
     width: auto;
@@ -1051,8 +1086,70 @@ footer > p {
     align-self: start;
   }
 
-  .beeld5Tekst>p{
+  .beeld5Tekst > p {
     max-width: 70vw;
+    padding-bottom: 5vw;
+  }
+  .beeld5Tekst > h4 {
+    padding: 0;
+  }
+
+  .beeld5Tekst {
+    padding: 20vw 0;
+    background-image: url(../assets/beeld5BackgroundTekst2.png);
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .test1 {
+    grid-template-rows: 50vw 15vw 5vw 10vw;
+  }
+
+  .chapter12Image {
+    height: 80vw;
+    width: auto;
+  }
+
+  .chapter12Titel {
+    grid-template-rows: 10vw 10vw;
+  }
+
+  .chapter2Intro {
+    background-image: url(../assets/backgroundIntro2Desk.png);
+    background-size: contain;
+    background-position: center;
+    grid-template-rows: 70vw;
+    grid-template-columns: 100vw;
+    margin-top: 10vw;
+  }
+
+  .chapter2IntroImage {
+    width: 10vw;
+  }
+
+  .chapter2Intro > h2 {
+    display: grid;
+    grid-template-rows: 20vw 30vw;
+    grid-template-columns: 20vw 60vw;
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: center;
+    margin-left: 5vw;
+    align-self: end;
+  }
+
+  .TitelIntro2Highlight {
+    grid-row: 2;
+    grid-column: 1/3;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .TitelIntro2Highlight {
+    grid-row: 2;
+    grid-column: 1/3;
+    justify-self: center;
+    align-self: center;
   }
 }
 
@@ -1185,15 +1282,22 @@ footer > p {
   }
 
   .beeld2Titel {
-    grid-template-columns: 25vw 25vw;
+    grid-template-columns: 25vw 30vw;
     grid-template-rows: 18vw;
   }
 
+  .beeld2Tekst {
+    margin-top: -5vw;
+    margin-bottom: -5vw;
+  }
+
   .chapter1Intro {
+    padding: 10vw 0;
     background-image: url(../assets/backgroundIntro1Desk.png);
     background-size: 100vw auto;
     grid-template-columns: 5vw 90vw 5vw;
     grid-template-rows: 15vh 10vh 10vh;
+    margin: 0;
   }
 
   .chapter1Intro > h2 {
@@ -1241,15 +1345,17 @@ footer > p {
     rotate: 170deg;
   }
 
+    .beeld4Titel {
+    grid-template-columns: 25vw 35vw;
+    grid-template-rows: 12vw 6vw;
+  }
   .beeld4Image {
     width: 60vw;
   }
 
-  .beeld5Tekst{
-    background-image: url(../assets/beeld5BackgroundTekst2.png);
-    background-size: cover;
-    background-position: center center;
-
+  .chapter12Titel {
+    grid-template-columns: 20vw 45vw;
+    grid-template-rows: 18vw;
   }
 }
 
@@ -1258,25 +1364,36 @@ footer > p {
     max-width: 55vw;
     height: auto;
   }
+
+  .headerContent {
+    height: 60vw;
+  }
 }
 
 @media screen and (min-width: 1400px) {
+  .headerContent {
+    height: 50vw;
+  }
   .beeld2 {
     display: flex;
     align-items: center;
     gap: 5vw;
-    margin: 8vh 0 10vh;
+    margin: 3vw 0 15vw;
+  }
+
+  .beeld2Titel {
+    grid-template-columns: 20vw 25vw;
+    grid-template-rows: 18vw;
   }
   .beeld4 {
     display: flex;
-    gap: 5vw;
     align-items: center;
   }
 
   .beeld4Image {
-    width: 40vw;
+    width: 35vw;
     height: 100%;
-
+    margin: 0 0 0 3vw;
   }
 
   .beeld4Tekst > p {
@@ -1284,8 +1401,93 @@ footer > p {
     max-width: 50vw;
   }
 
+  .beeld4Tekst p:first-of-type {
+    margin-left: 3vw;
+  }
+
+  .beeld4Tekst p:nth-of-type(2) {
+    margin-left: 7vw;
+  }
+
   .beeld4Titel {
     grid-template-columns: 25vw 30vw;
     grid-template-rows: 8vw 4vw;
   }
+
+  .beeld5Tekst {
+    padding: 17vw;
+    background-size: contain;
+  }
+
+  .chapter12 {
+    display: flex;
+    align-items: center;
+    margin: 5vw 0;
+  }
+
+  .chapter12Image {
+    height: 40vw;
+    width: auto;
+  }
+
+  .chapter12Titel {
+    grid-template-rows: 10vw 10vw;
+    grid-template-columns: 20vw 40vw;
+  }
+
+  .chapter12Tekst {
+    margin-left: 3vw;
+  }
+
+  .chapter12Tekst > p {
+    width: 50vw;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .chapter12Tekst p:first-of-type {
+    margin-left: 3vw;
+  }
+
+  .chapter12Tekst p:nth-of-type(2) {
+    margin-left: 7vw;
+    margin-bottom: 10vw;
+  }
+
+  .test1 {
+    grid-template-columns: 5vw 10vw 10vw 10vw;
+    grid-template-rows: 25vw 8vw 4vw 8vw;
+    margin: 0;
+  }
+
+  .test1 > p {
+    font-size: var(--font-size-mobile-intro);
+    padding: 1vw;
+  }
+
+
+  .chapter2Intro{
+    margin: 5vw 0 5vw;
+  }
+  .chapter2IntroImage{
+    width: 7.55vw;
+    rotate: 20deg;
+
+  }
+
+  .chapter2Intro>h2{
+    rotate: 0deg;
+    grid-template-columns: 30vw 50vw;
+    margin: 0;
+  }
+
+  .TitelIntro2Highlight{
+    justify-self: end;
+  }
+
+  .TitelIntro2Down{
+    justify-self: end;
+  }
+
+  
 }
