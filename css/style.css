@@ -14,12 +14,12 @@
   --font-size-mobile-h2: clamp(2.3rem, calc(2rem + 12vw), 7rem);
   --fontsize-mobile-h2-span: clamp(2.2rem, calc(2.4rem + 14vw), 10rem);
   --font-size-mobile-h3: clamp(2rem, calc(1.3rem + 5vw), 6rem);
-  --fontsize-mobile-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 12rem);
-  --fontsize-mobile-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 14rem);
+  --fontsize-mobile-h3-span: clamp(2.3rem, calc(1.8rem + 18vw), 10rem);
+  --fontsize-mobile-h3-spanVerschil: clamp(2.3rem, calc(1.8rem + 15vw), 9rem);
   --font-size-mobile-h4: clamp(1.7rem, calc(1.4rem + 3vw), 9rem);
   --font-size-mobile-p: clamp(1rem, calc(0.9rem + 1.5vw), 1.3rem);
   --font-size-mobile-instructies: clamp(1rem, calc(1rem + 1.55vw), 1.5rem);
-  --font-size-mobile-button: clamp(1.2rem, calc(1rem + 2vw), 8rem);
+  --font-size-mobile-button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
 }
 
 body {
@@ -1083,8 +1083,23 @@ footer > p {
   grid-column: 2;
   width: 25.8vw;
 }
+
+
 }
 
+@media screen and  (min-width: 600px){
+    .button{
+        padding: 3vw 10vw;
+        display: inline-block;
+        max-width: 70vw;
+        border: 1vw;
+        border: var(--color-green) 1vw solid;
+    }
+
+    .buttonSchots{
+        border: var(--color-blue) 1vw solid;
+    }
+}
 @media screen and (min-width: 800px) {
   .headerContent {
     height: 70vw;
@@ -1288,6 +1303,20 @@ footer > p {
   grid-column: 2;
   width: 20.66vw;
 }
+
+   .button{
+        padding: 2vw 5vw;
+        display: inline-block;
+        max-width: 70vw;
+        border: 1vw;
+        border: var(--color-green) 1vw solid;
+
+    }
+
+    .beeld13>.buttonSchots{
+        margin-left: 3vw;
+        border: var(--color-blue) 1vw solid;
+    }
 }
 
 @media screen and (min-width: 1000px) {
