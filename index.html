@@ -11,49 +11,76 @@
   <body>
     <header>
       <div class="headerContent">
-        <h1>De 
-          Great 
-          Highland 
-          Doedelzak</h1>
+        <h1>De
+           Great
+            Highland
+             Doedelzak</h1>
 
+        <picture class="headerImage">
+          <source media="(min-width: 1000px)" srcset="assets/header2.png" />
 
-           <picture class="headerImage">
-    <source media="(min-width: 1000px)" srcset="assets/header2.png">
+          <source
+            sizes="650px"
+            media="(min-width: 1000px)"
+            srcset="
+              assets/header2-650.avif   650w,
+              assets/header2-900.avif  1000w,
+              assets/header2-1200.avif 2400w
+            "
+            type="image/avif"
+          />
+          <source
+            sizes="650px"
+            media="(min-width: 1000px)"
+            srcset="
+              assets/header2-650.webp   650w,
+              assets/header2-900.webp   900w,
+              assets/header2-1200.webp 1200w
+            "
+            type="image/avif"
+          />
+          <img
+            class="headerImage"
+            src="assets/headermobile.png"
+            width="869"
+            height="969"
+            alt="doedelzak"
+          />
+        </picture>
 
-       <source sizes="650px" media="(min-width: 1000px)" srcset="assets/header2-650.avif 650w,
-       assets/header2-900.avif 1800w,
-       assets/header2-1200.avif 2400w" type="image/avif" />
-       <source sizes="650px" media="(min-width: 1000px)" srcset="assets/header2-650.webp 650w,
-       assets/header2-900.webp 900w,
-       assets/header2-1200.webp 1200w" type="image/avif" />
-      <img
-          class="headerImage"
-          src="assets/headermobile.png"
-          width="869"
-          height="969"
-          alt="doedelzak"
-        />
-
-  </picture>
-      
         <p class="headerIntro">Het Schotse oorlogsinstrument</p>
       </div>
 
       <nav class="headerMenu">
         <img class="navLogo" src="assets/logo.svg" alt="logo MIM" />
-        <ul class="menu">
-          <li><a href="#">Muzikaal wapen</a></li>
-          <li><a href="#">Opbouw</a></li>
-          <li><a href="#">Geluid</a></li>
-        </ul>
-        <div class="taal">
-          <p>NL</p>
-         <img  class="pijl" src="assets/pijl.png" alt="pijltje naar beneden">
+
+        <p class="hamburger">
+          <span></span>
+        </p>
+
+        <div class="navMobile">
+          <ul class="menuMobile">
+            <li><a href="#">Muzikaal wapen</a></li>
+            <li><a href="#">Opbouw</a></li>
+            <li><a href="#">Geluid</a></li>
+          </ul>
+
+          <div class="taalMobile">
+          <p class="taalActive">NL</p>
           <p class="fr">FR</p>
-          <p class="eng">ENG</p>
+          <p>ENG</p>
+        </div>
 
         </div>
-        
+          <ul class="menu">
+            <li><a href="#">Muzikaal wapen</a></li>
+            <li><a href="#">Opbouw</a></li>
+            <li><a href="#">Geluid</a></li>
+          </ul>
+        <div class="taal">
+          <p class="nl">NL</p>
+          <img class="pijl" src="assets/pijl.png" alt="pijltje naar beneden" />
+        </div>
       </nav>
     </header>
 
@@ -61,34 +88,46 @@
       <section class="beeld2">
         <img
           class="beeld2Image1"
-          src="assets/Beeld21.png"
+          src="assets/beeld21.png"
           alt="Schotse troepen"
         />
         <div class="beeld2Tekst">
-        <h2 class="beeld2Titel">
-          <span class="beeld2TitelHigh">1746</span>
-          <span class="beeld2TitelDown">16 april </span>
-        </h2>
-        <p>
-          Na al vele gevechten achter de rug te hebben komt er vandaag de grote
-          confrontatie aan tussen de Engelse troepen en Schotse. Terwijl de
-          Engelse al klaar staan aan het front, zijn de Schotse soldaten nog
-          onderweg. Een van die soldaten ben jij, jouw taak is om de troepen te
-          begeleiden met jouw doedelzak om zo voor een overwinning te zorgen.
-        </p>
-      </div>
+          <h2 class="beeld2Titel">
+            <span class="beeld2TitelHigh">1746</span>
+            <span class="beeld2TitelDown">16 april </span>
+          </h2>
+          <p>
+            Na al vele gevechten achter de rug te hebben komt er vandaag de
+            grote confrontatie aan tussen de Engelse troepen en Schotse. Terwijl
+            de Engelse al klaar staan aan het front, zijn de Schotse soldaten
+            nog onderweg. Een van die soldaten ben jij, jouw taak is om de
+            troepen te begeleiden met jouw doedelzak om zo voor een overwinning
+            te zorgen.
+          </p>
+        </div>
         <img
           class="beeld2Image2"
-          src="assets/Beeld22.png"
+          src="assets/beeld22.png"
           alt="Engelse troepen"
         />
       </section>
 
       <section class="chapter1">
         <div class="chapter1Intro">
-          <h2> <span class="titelIntro1Down">Muzikaal</span>  <span class="highlightTitel titelIntro1High">wapen</span></h2>
-          <img class="chapter1Image1" src="assets/pijp270.png" alt="doedelzakpijp">
-          <img class="chapter1Image2" src="assets/Intro1Zwaard.png" alt="zwaard">
+          <h2>
+            <span class="titelIntro1Down">Muzikaal</span>
+            <span class="highlightTitel titelIntro1High">wapen</span>
+          </h2>
+          <img
+            class="chapter1Image1"
+            src="assets/pijp270.png"
+            alt="doedelzakpijp"
+          />
+          <img
+            class="chapter1Image2"
+            src="assets/Intro1Zwaard.png"
+            alt="zwaard"
+          />
         </div>
 
         <article class="chapter11">
@@ -99,29 +138,29 @@
               alt="Doedelzakspeler die commando's stuurt"
             />
             <div class="beeld4Tekst">
-            <h3 class="beeld4Titel">
-              <span class="highlightTitel beeld4TitelHigh">Naar</span>
-              <span class="beeld4TitelDown">het front</span>
-            </h3>
-            <p>
-              Terwijl vele andere legers trompetten gebruikten voor hun legers
-              aan te voeren, gebruiken de Schotten de doedelzak. Nu al tijdens
-              het marcheren ben je al volop bezig met de doedelzak te bespelen.
-              Dit zorgt ervoor dat je troepen tijdens de tocht mooi in lijn
-              blijven marcheren. Maar jouw liederen zorgen er ook voor dat ze
-              meer zelfzekerheid krijgen en volledig klaar zijn voor veldslag.
-              Ook straks zal je een belangrijke rol gaan spelen.
-            </p>
-            <p>
-              Zo worden er aan de hand van korte muziekstukken tactische
-              boodschappen gestuurd naar alle troepen die aan het vechten zijn.
-              De doedelzak is hier het perfecte instrument voor met zijn luide
-              toon en bereik van meer dan 10 kilometer steekt het boven al het
-              geluid van het gevecht en bereikt het al je troepen. Je rol als
-              doedelzakspeler maakt dus zeker het verschil. Maar wij Schotten
-              waren niet de eerste die het potentieel zagen van de doedelzak in
-              een oorlog.
-            </p>
+              <h3 class="beeld4Titel">
+                <span class="highlightTitel beeld4TitelHigh">Naar</span>
+                <span class="beeld4TitelDown">het front</span>
+              </h3>
+              <p>
+                Terwijl vele andere legers trompetten gebruikten voor hun legers
+                aan te voeren, gebruiken de Schotten de doedelzak. Nu al tijdens
+                het marcheren ben je al volop bezig met de doedelzak te
+                bespelen. Dit zorgt ervoor dat je troepen tijdens de tocht mooi
+                in lijn blijven marcheren. Maar jouw liederen zorgen er ook voor
+                dat ze meer zelfzekerheid krijgen en volledig klaar zijn voor
+                veldslag. Ook straks zal je een belangrijke rol gaan spelen.
+              </p>
+              <p>
+                Zo worden er aan de hand van korte muziekstukken tactische
+                boodschappen gestuurd naar alle troepen die aan het vechten
+                zijn. De doedelzak is hier het perfecte instrument voor met zijn
+                luide toon en bereik van meer dan 10 kilometer steekt het boven
+                al het geluid van het gevecht en bereikt het al je troepen. Je
+                rol als doedelzakspeler maakt dus zeker het verschil. Maar wij
+                Schotten waren niet de eerste die het potentieel zagen van de
+                doedelzak in een oorlog.
+              </p>
             </div>
           </div>
           <div class="beeld5">
@@ -152,22 +191,23 @@
 
         <article class="chapter12">
           <div class="chapter12Tekst">
-          <h3 class="chapter12Titel">
-            <span class="highlightTitel chapter12TitelHigh">Red</span>
-            <span class="chapter12TitelDown">je troepen!</span>
-          </h3>
-          <p>
-            Terwijl je volop bezig bent met spelen om je troepen te begeleiden
-            naar het slagveld valt er je iets op. Die vuile Engelsen hebben een
-            val opgezet om je troepen uit te schakelen, maar als je snel genoeg
-            bent kan je nog een signaal sturen om de troepen te stoppen.
-          </p>
-          <p class="instructies">
-            Klik binnen de 20 seconden zoveel mogelijk als je kan om zo een luid
-            signaal te sturen en je troepen te redden. De timer start vanaf je
-            klikt op de afbeelding.
-          </p>
-        </div>
+            <h3 class="chapter12Titel">
+              <span class="highlightTitel chapter12TitelHigh">Red</span>
+              <span class="chapter12TitelDown">je troepen!</span>
+            </h3>
+            <p>
+              Terwijl je volop bezig bent met spelen om je troepen te begeleiden
+              naar het slagveld valt er je iets op. Die vuile Engelsen hebben
+              een val opgezet om je troepen uit te schakelen, maar als je snel
+              genoeg bent kan je nog een signaal sturen om de troepen te
+              stoppen.
+            </p>
+            <p class="instructies">
+              Klik binnen de 20 seconden zoveel mogelijk als je kan om zo een
+              luid signaal te sturen en je troepen te redden. De timer start
+              vanaf je klikt op de afbeelding.
+            </p>
+          </div>
           <div class="test1">
             <img
               class="chapter12Image"
@@ -182,8 +222,15 @@
 
       <section class="chapter2">
         <div class="chapter2Intro">
-          <h2> <span class="TitelIntro2Down"> De</span> <span class="highlightTitel TitelIntro2Highlight">opbouw</span></h2>
-          <img class="chapter2IntroImage" src="assets/pijp.png" alt="pijp van doedelzak">
+          <h2>
+            <span class="TitelIntro2Down"> De</span>
+            <span class="highlightTitel TitelIntro2Highlight">opbouw</span>
+          </h2>
+          <img
+            class="chapter2IntroImage"
+            src="assets/pijp.png"
+            alt="pijp van doedelzak"
+          />
         </div>
 
         <article class="chapter21">
@@ -194,18 +241,18 @@
               alt="pijp van doedelzak"
             />
             <div class="beeld7Tekst">
-            <h3>
-              <span class="beeld7TitelHigh highlightTitel">Snel</span>
-              <span class="beeld7TitelHigh2 highlightTitel">Cursus</span>
+              <h3>
+                <span class="beeld7TitelHigh highlightTitel">Snel</span>
+                <span class="beeld7TitelHigh2 highlightTitel">Cursus</span>
 
-              <span class="beeld7TitelDown">doedelzak</span>
-            </h3>
-            <p>
-              Je navigeert je naar de oudste en wijste soldaat die je kent,
-              MacBagPipe. Als er iemand is die je kan helpen is hij het wel. Na
-              veel smeekbedes en een deal voor een vat whisky gaat hij akkoord
-              om je snel op te leiden.
-            </p>
+                <span class="beeld7TitelDown">doedelzak</span>
+              </h3>
+              <p>
+                Je navigeert je naar de oudste en wijste soldaat die je kent,
+                MacBagPipe. Als er iemand is die je kan helpen is hij het wel.
+                Na veel smeekbedes en een deal voor een vat whisky gaat hij
+                akkoord om je snel op te leiden.
+              </p>
             </div>
             <img
               class="beeld7Image2"
@@ -221,7 +268,7 @@
                 alt="doedelzak"
               />
             </div>
-            <section class="onderdeel">
+            <section class="onderdeel onderdeel1">
               <img
                 class="onderdeelImage"
                 src="assets/Onderdeel1.png"
@@ -285,55 +332,79 @@
             </section>
 
             <section class="onderdeel">
-              <img class="onderdeelImage" src="assets/Onderdeel1.png" alt="doedelzak" />
-              <div class="onderdeelTekst"> 
+              <img
+                class="onderdeelImage"
+                src="assets/Onderdeel1.png"
+                alt="doedelzak"
+              />
+              <div class="onderdeelTekst">
                 <h4>Luchtzak</h4>
                 <p>
-                Misschien wel het belangrijkste onderdeel van de doedelzak, is
-                de zak. Deze gaat ervoor zorgen dat je niet constant hoeft te
-                blazen maar toch gewoon kan verder spelen. Hoe? Wel op de
-                momenten dat je even bij ademt duw je met je hand op de zak om
-                zo een gelijke druk te behouden in de zak. Hierdoor blijft de
-                lucht gelijkmatig door de pijpen stromen, en hoort niemand dat
-                je niet aan het blazen bent. De zak bestaat niet zomaar uit stof
-                maar wordt gemaakt uit vel van dieren, schaap, koe, geit of
-                hond. Het zijn allemaal mogelijkheden.
-              </p>
-            </div>
-             
+                  Misschien wel het belangrijkste onderdeel van de doedelzak, is
+                  de zak. Deze gaat ervoor zorgen dat je niet constant hoeft te
+                  blazen maar toch gewoon kan verder spelen. Hoe? Wel op de
+                  momenten dat je even bij ademt duw je met je hand op de zak om
+                  zo een gelijke druk te behouden in de zak. Hierdoor blijft de
+                  lucht gelijkmatig door de pijpen stromen, en hoort niemand dat
+                  je niet aan het blazen bent. De zak bestaat niet zomaar uit
+                  stof maar wordt gemaakt uit vel van dieren, schaap, koe, geit
+                  of hond. Het zijn allemaal mogelijkheden.
+                </p>
+              </div>
             </section>
             <section class="onderdeel">
-              <img class="onderdeelImage" src="assets/Onderdeel1.png" alt="doedelzak" />
-              <div class="onderdeelTekst"> 
-              <h4>Chanter</h4>
-              <p>
-                Het laatste onderdeel waar je nog iets over moet weten is de
-                chanter, deze ga je gebruiken om effectief een melodie te gaan
-                spelen. De chanter is de houten pijp die vanonder aan je zak
-                hangt, om ervoor te zorgen dat deze luid genoeg is, is hij
-                kegelvormig. In de chanter zijn in totaal acht gaten geboord,
-                door met je beide handen de gaten afwisselend te bedekken of
-                openen kan je in totaal acht noten gaan spelen.
-              </p>
-            </div>
+              <img
+                class="onderdeelImage"
+                src="assets/Onderdeel1.png"
+                alt="doedelzak"
+              />
+              <div class="onderdeelTekst">
+                <h4>Chanter</h4>
+                <p>
+                  Het laatste onderdeel waar je nog iets over moet weten is de
+                  chanter, deze ga je gebruiken om effectief een melodie te gaan
+                  spelen. De chanter is de houten pijp die vanonder aan je zak
+                  hangt, om ervoor te zorgen dat deze luid genoeg is, is hij
+                  kegelvormig. In de chanter zijn in totaal acht gaten geboord,
+                  door met je beide handen de gaten afwisselend te bedekken of
+                  openen kan je in totaal acht noten gaan spelen.
+                </p>
+              </div>
             </section>
           </div>
         </article>
 
         <div class="beeld9">
-          <picture class="beeld9Image1" >
-            <source media="(min-width: 1000px)" srcset="assets/greenline2.png">
-             <img class="beeld9Image1" src="assets/greenline.png" alt="greenline">
+          <picture class="beeld9Image1">
+            <source
+              media="(min-width: 1000px)"
+              srcset="assets/greenline2.png"
+            />
+            <img
+              class="beeld9Image1"
+              src="assets/greenline.png"
+              alt="greenline"
+            />
           </picture>
 
           <picture class="beeld9Image2">
-            <source media="(min-width: 1000px)" srcset="assets/greenline3.png">
-<img class="beeld9Image2" src="assets/greenline.png" alt="greenline">
+            <source
+              media="(min-width: 1000px)"
+              srcset="assets/greenline3.png"
+            />
+            <img
+              class="beeld9Image2"
+              src="assets/greenline.png"
+              alt="greenline"
+            />
           </picture>
-         
-          
+
           <article class="beeld9Deel1">
-            <img class="beeld9Deel1Image" src="assets/Beeld91.png" alt="Man die aan het nadenken is">
+            <img
+              class="beeld9Deel1Image"
+              src="assets/beeld91.png"
+              alt="Man die aan het nadenken is"
+            />
             <h4>Ten val</h4>
             <p>
               Na je snelle opleiding ben je nog volop bezig met alles te
@@ -345,8 +416,16 @@
 
           <article class="beeld9Deel2">
             <div class="beeld9Deel2Images">
-            <img class="beeld9Deel2Image" src="assets/Beeld92.png" alt="Man die valt ">
-            <img class="beeld9Deel2Image2" src="assets/beeld93.png" alt="doedelzak die valt">
+              <img
+                class="beeld9Deel2Image"
+                src="assets/beeld92.png"
+                alt="Man die valt "
+              />
+              <img
+                class="beeld9Deel2Image2"
+                src="assets/beeld93.png"
+                alt="doedelzak die valt"
+              />
             </div>
             <h4>Klein probleem</h4>
             <p>
@@ -362,20 +441,30 @@
           <h4>Los de puzzel op</h4>
           <p class="instructies">
             Sleep de verschillende stukken van de doedelzak terug op de juiste
-            plaats. 
+            plaats.
           </p>
-          <img class="beeld10Image" src="assets/beeld93.png" alt="doedelzak die valt">
+          <img
+            class="beeld10Image"
+            src="assets/beeld93.png"
+            alt="doedelzak die valt"
+          />
         </article>
       </section>
 
       <section class="chapter3">
         <div class="chapter3Intro">
-          <img src="assets/Chapter3Image.png" alt="doedelzakpijpen">
-          <h2>Uniek <span class="highlightTitel TitelIntro3Highlight">geluid</span></h2>
+          <img src="assets/chapter3Image.png" alt="doedelzakpijpen" />
+          <h2>
+            Uniek
+            <span class="highlightTitel TitelIntro3Highlight">geluid</span>
+          </h2>
         </div>
 
         <article class="beeld11">
-          <h3 class="beeld11Titel"><span class="beeld11TitelHigh highlightTitel">Verschil</span> <span class="beeld11TitelDown">in geluid</span> </h3>
+          <h3 class="beeld11Titel">
+            <span class="beeld11TitelHigh highlightTitel">Verschil</span>
+            <span class="beeld11TitelDown">in geluid</span>
+          </h3>
           <p>
             Wanneer je eindelijk aankomt op het front valt er je iets op, de
             Engelse hebben een Ierse doedelzak meegenomen om je te misleiden. Zo
@@ -385,7 +474,6 @@
           </p>
 
           <div class="beeld12">
-            
             <h4 class="beeld12Titel1">Schotse doedelzak</h4>
             <ul class="beeld12Tekst1">
               <li>Zeer luid</li>
@@ -393,61 +481,80 @@
               <li>Beperkt in noten</li>
               <li>Constant "gezoem"</li>
             </ul>
-             <div class="beeld12Images">
-            <img class="beeld12Image1" src="assets/beeld11Helft1.png" alt="Schotse doedelzak">
-            <img class="beeld12Image2" src="assets/beeld11Helft2.png" alt="Ierse doedelzak">
+            <div class="beeld12Images">
+              <img
+                class="beeld12Image1"
+                src="assets/beeld11Helft1.png"
+                alt="Schotse doedelzak"
+              />
+              <img
+                class="beeld12Image2"
+                src="assets/beeld11Helft2.png"
+                alt="Ierse doedelzak"
+              />
             </div>
             <h4 class="beeld12Titel2">Ierse doedelzak</h4>
             <ul class="beeld12Tekst2">
               <li>Zachter en aangenamer</li>
               <li>Hoge en lage tonen</li>
               <li>Kan meer noten</li>
-              <li>
-                Geen constant "gezoem"
-              </li>
+              <li>Geen constant "gezoem"</li>
             </ul>
           </div>
 
           <div class="beeld13">
-            <img class="beeld13Image1" src="assets/Beeld131.png" alt="Oor dat eigenschappen raadt">
+            <img
+              class="beeld13Image1"
+              src="assets/beeld131.png"
+              alt="Oor dat eigenschappen raadt"
+            />
             <div class="beeld13Tekst">
-             <h4>Herken het signaal</h4>
-            <p>
-              Je aanvoerder heeft gezegd dat hij doorheen de veldslag twee
-              signalen zal spelen die je dan moet meespelen. Maar de Engelse
-              zullen ook signalen sturen, het is dus aan jou om de Great
-              Highland doedelzak te onderscheiden van de Ierse doedelzak.
-            </p>
-            <p class="instructies">
-              Klik op start om het eerste signaal te horen, hierna moet je raden
-              of het een Schotse of een Ierse dodelzak was
-            </p>
+              <h4>Herken het signaal</h4>
+              <p>
+                Je aanvoerder heeft gezegd dat hij doorheen de veldslag twee
+                signalen zal spelen die je dan moet meespelen. Maar de Engelse
+                zullen ook signalen sturen, het is dus aan jou om de Great
+                Highland doedelzak te onderscheiden van de Ierse doedelzak.
+              </p>
+              <p class="instructies">
+                Klik op start om het eerste signaal te horen, hierna moet je
+                raden of het een Schotse of een Ierse dodelzak was
+              </p>
 
-            <div class="fragmenten">
-              <img src="assets/fragment1.png" alt="bol met 1 in">
-              <img src="assets/fragment2.png" alt="bol met 2 in">
-              <img src="assets/fragment3.png" alt="bol met 3 in">
-              <img src="assets/fragment4.png" alt="bol met 4 in">
-              <img src="assets/fragment5.png" alt="bol met 5 in">
-              
-               </div>
+              <div class="fragmenten">
+                <img src="assets/fragment1.png" alt="bol met 1 in" />
+                <img src="assets/fragment2.png" alt="bol met 2 in" />
+                <img src="assets/fragment3.png" alt="bol met 3 in" />
+                <img src="assets/fragment4.png" alt="bol met 4 in" />
+                <img src="assets/fragment5.png" alt="bol met 5 in" />
+              </div>
+
+              <p class="button buttonStart">Start</p>
+              <p class="button buttonIers">Ierse doedelzak</p>
+              <p class="button buttonSchots">Schotse doedelzak</p>
             </div>
-           
 
-            <p class="button buttonStart">Start</p>
-            <p class="button buttonIers">Ierse doedelzak</p>
-            <p class="button buttonSchots">Schotse doedelzak</p>
-
-            <img class="beeld13Image2"  src="assets/Beeld132.png" alt="Oor dat eigenschappen raadt">
+            <img
+              class="beeld13Image2"
+              src="assets/beeld132.png"
+              alt="Oor dat eigenschappen raadt"
+            />
           </div>
         </article>
       </section>
 
       <section class="beeld14">
-        <img class="beeld14Image1" src="assets/beeld141.png" alt="Schotse troepen die aanvallen">
+        <img
+          class="beeld14Image1"
+          src="assets/beeld141.png"
+          alt="Schotse troepen die aanvallen"
+        />
 
-             <h2><span class="highlightTitel beeld14TitelHigh">Zware</span> <span class="beeld14TitelDown">veldslag</span> </h2>
-           <p>
+        <h2>
+          <span class="highlightTitel beeld14TitelHigh">Zware</span>
+          <span class="beeld14TitelDown">veldslag</span>
+        </h2>
+        <p>
           Het was een zware battle, maar desondanks al je moeite hebben de
           Schotten verloren. De Engelse waren gewoon simpelweg met te veel. Maar
           de Engelse zagen maar al te goed wat voor krijgers jullie waren en
@@ -457,37 +564,60 @@
           doedelzak te bespelen. Want ze zien jouw geliefkoosde instrument als
           een oorlogswapen.
         </p>
-     
-        <img class="beeld14Image2" src="assets/beeld142.png" alt="Engelse troepen die verdedigen">
+
+        <img
+          class="beeld14Image2"
+          src="assets/beeld142.png"
+          alt="Engelse troepen die verdedigen"
+        />
       </section>
 
       <section class="beeld15">
-        <img class="beeld15Image1" src="assets/beeld151.png" alt="ruitjespatroon">
+        <img
+          class="beeld15Image1"
+          src="assets/beeld151.png"
+          alt="ruitjespatroon"
+        />
         <div class="beeld15Tekst">
-            <h2><span class="highlightTitel beeld15TitelHigh">Ontdek</span>  <span class="beeld15TitelDown">meer</span> </h2>
-        <p>
-          Wil je weten wat er hierna met de doedelzak gebeurt, of wil je graag
-          eens een doedelzak bespelen. Kom dan snel naar het
-          Muziekinstrumentenmuseum te Brussel, wij hebben hier een grote
-          collectie aan doedelzakken en geven ook workshops zodat je een echte
-          doedelzakspeler wordt. Naast de doedelzak hebben we nog vele andere
-          instrumenten om te ontdekken. Interesse? Boek dan hier je tickets.
-        </p>
-        <p class="button">Tickets</p>
+          <h2>
+            <span class="highlightTitel beeld15TitelHigh">Ontdek</span>
+            <span class="beeld15TitelDown">meer</span>
+          </h2>
+          <p>
+            Wil je weten wat er hierna met de doedelzak gebeurt, of wil je graag
+            eens een doedelzak bespelen. Kom dan snel naar het
+            Muziekinstrumentenmuseum te Brussel, wij hebben hier een grote
+            collectie aan doedelzakken en geven ook workshops zodat je een echte
+            doedelzakspeler wordt. Naast de doedelzak hebben we nog vele andere
+            instrumenten om te ontdekken. Interesse? Boek dan hier je tickets.
+          </p>
+          <p class="button">Tickets</p>
         </div>
-      
-        <img class="beeld15Image2" src="assets/beeld152.png" alt="ruitjespatroon">
+
+        <img
+          class="beeld15Image2"
+          src="assets/beeld152.png"
+          alt="ruitjespatroon"
+        />
       </section>
     </main>
     <footer>
-        <img class="footerImage" src="assets/logoGreen.svg" alt="logo MIM">
+      <img class="footerImage" src="assets/logoGreen.svg" alt="logo MIM" />
       <p>MIM</p>
 
-      
       <div class="footerSocialmedia">
-        <a href="https://www.facebook.com/MIMBrussels/"> <img  class="socialImage" src="assets/facebook.png" alt="facebook logo"></a>
-        <a href="https://www.instagram.com/mimbrussels/"><img class="socialImage" src="assets/insta.png" alt="instagram logo"></a>
-        <a href="https://twitter.com/mimbrussels"><img class="socialImage" src="assets/twitter.png" alt="twitter logo"></a>
+        <a href="https://www.facebook.com/MIMBrussels/">
+          <img
+            class="socialImage"
+            src="assets/facebook.png"
+            alt="facebook logo"
+        /></a>
+        <a href="https://www.instagram.com/mimbrussels/"
+          ><img class="socialImage" src="assets/insta.png" alt="instagram logo"
+        /></a>
+        <a href="https://twitter.com/mimbrussels"
+          ><img class="socialImage" src="assets/twitter.png" alt="twitter logo"
+        /></a>
       </div>
     </footer>
 
