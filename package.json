@@ -11,5 +11,8 @@
   "devDependencies": {
     "gsap": "^3.11.4",
     "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "mobile-drag-drop": "^3.0.0-rc.0"
   }
 }
