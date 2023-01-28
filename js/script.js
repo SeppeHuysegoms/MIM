@@ -6,20 +6,15 @@ let huidigPuzzelStuk;
 let nieuwPuzzelStuk;
 var randomVolgorde = ["4", "2", "8", "5", "1", "6", "7", "9", "3"];
 const correcteVolgorde = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-
 const init = () => {
-
   const $hamburgerMenu = document.querySelector(".hamburger");
 
   $hamburgerMenu.addEventListener("click", test);
-
   for (let i = 0; i < 9; i++) {
     let puzzelstuk = document.createElement("img");
     puzzelstuk.id = "puzzelstuk" + i.toString();
-    puzzelstuk.src = "puzzelstuk" + randomVolgorde.shift() + ".png";
+    puzzelstuk.src = "assets/puzzelstuk" + randomVolgorde.shift() + ".png";
 
-    //DRAG FUNCTIONALITY
     puzzelstuk.addEventListener("dragstart", dragStart);
     puzzelstuk.addEventListener("dragover", dragOver);
     puzzelstuk.addEventListener("dragenter", dragEnter);
@@ -30,40 +25,45 @@ const init = () => {
     document.querySelector(".test2").appendChild(puzzelstuk);
   }
 
+  const $beeld8 = document.querySelector(".beeld8");
+  $beeld8.classList.add("beeld8JS");
 
+     let load = gsap.from(".onderdeel1", {
+       yPercent: 100,
+       opacity: 0,
+       ease: "sine.in",
+       duration: 2,
+     });
 
-    const $beeld8 = document.querySelector('.beeld8');
-    $beeld8.classList.add("beeld8JS");
+  ScrollTrigger.create({
+    trigger: ".beeld8",
+    start: "left 30%",
+    end: "left 0%",
+    toggleActions: "play none none reverse",
+    animation: load,
+    scrub: 1,
+  });
 
-    ScrollTrigger.create({
-      trigger: ".beeld8",
-      start: "left 30%",
-      end: "left 0%",
-      toggleActions: "play none none reverse",
-      animation: load,
-      scrub: 1,
-    });
+  let pinBeeld8 = gsap.from(".beeld8", {
+    duration: 350,
+  });
 
-      let pinBeeld8 = gsap.from(".beeld8", {
-        duration: 350,
-      });
-
-      ScrollTrigger.create({
-        trigger: ".beeld8",
-        start: "bottom 100%",
-        end: "bottom -45%",
-        toggleActions: "play none none reverse",
-        animation: pinBeeld8,
-        scrub: 1,
-        pin: true,
-      });
-}
+  ScrollTrigger.create({
+    trigger: ".beeld8",
+    start: "bottom 100%",
+    end: "bottom -45%",
+    toggleActions: "play none none reverse",
+    animation: pinBeeld8,
+    scrub: 1,
+    pin: true,
+  });
+};
 
 const test = () => {
   document.querySelector(".navMobile").classList.toggle("menuShow");
   document.querySelector(".hamburger").classList.toggle("hamburgerShow");
   document.querySelector("body").classList.toggle("overflow-y-hidden");
-}
+};
 
 const dragStart = (e) => {
   console.log(e.currentTarget);
@@ -114,5 +114,3 @@ const checkPuzzel = () => {
   }
 };
 init();
-
-
