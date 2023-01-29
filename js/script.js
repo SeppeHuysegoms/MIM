@@ -47,7 +47,7 @@ const init = () => {
   const $hamburgerMenu = document.querySelector(".hamburger");
   const $menuMobile = document.querySelector(".menuMobile");
   for (const child of $menuMobile.children) {
-    child.addEventListener("click", toggleMenu);;
+    child.addEventListener("click", toggleMenu);
   }
 
   $hamburgerMenu.addEventListener("click", toggleMenu);
@@ -69,6 +69,8 @@ const init = () => {
   }
   animatieBeeld2();
   animatieOnderdelen();
+  animatieBeeld51();
+  animatieBeeld5();
 
   document
     .querySelector(".buttonIers")
@@ -81,25 +83,27 @@ const init = () => {
   document.querySelector(".buttonSchots").style.display = "none";
   document.querySelector(".beeld12Tekst1").style.display = "none";
   document.querySelector(".beeld12Tekst2").style.display = "none";
-  document.querySelector(".beeld12Image1").addEventListener("click", revealTekst);
+  document
+    .querySelector(".beeld12Image1")
+    .addEventListener("click", revealTekst);
   document
     .querySelector(".beeld12Image2")
     .addEventListener("click", revealTekst2);
-    document
-      .querySelector(".beeld12Image1")
-      .addEventListener("mouseover", revealTekst);
-    document
-      .querySelector(".beeld12Image2")
-      .addEventListener("mouseover", revealTekst2);
-          document
-            .querySelector(".beeld12Image1")
-            .addEventListener("mouseout", hideTekst);
-          document
-            .querySelector(".beeld12Image2")
-            .addEventListener("mouseout", hideTekst2);
+  document
+    .querySelector(".beeld12Image1")
+    .addEventListener("mouseover", revealTekst);
+  document
+    .querySelector(".beeld12Image2")
+    .addEventListener("mouseover", revealTekst2);
+  document
+    .querySelector(".beeld12Image1")
+    .addEventListener("mouseout", hideTekst);
+  document
+    .querySelector(".beeld12Image2")
+    .addEventListener("mouseout", hideTekst2);
 
-              const $fotoTest1 = document.querySelector(".chapter12Image");
-              $fotoTest1.addEventListener("click", countClicks);
+  const $fotoTest1 = document.querySelector(".chapter12Image");
+  $fotoTest1.addEventListener("click", countClicks);
 };
 
 const countClicks = () => {
@@ -121,21 +125,20 @@ const startTimer = () => {
   if (timeTest1 === maxTimeTest1) {
     clearInterval(timer);
     if (clicks < minClicks) {
-      $time.innerHTML = "Je signaal";
-      $counterClicks.innerHTML = "was te zwak";
+      document.querySelector(".chapter12Tekst>.instructies").innerHTML =
+        "Je signaal was niet sterk genoeg, sommige van je troepen zijn recht in de val getrapt";
       audioTest1Gefaald.play();
-    }else{
-      $time.innerHTML = "Je signaal";
-      $counterClicks.innerHTML = "was sterk genoeg";
+    } else {
+      document.querySelector(".chapter12Tekst>.instructies").innerHTML =
+        "Je hebt snel een luid signaal kunnen geven, waardoor je tropen zijn gered";
       audioTest1Geslaagd.play();
-
     }
   }
 };
 
 const revealTekst = () => {
   document.querySelector(".beeld12Tekst1").style.display = "block";
-}
+};
 const revealTekst2 = () => {
   document.querySelector(".beeld12Tekst2").style.display = "block";
 };
@@ -388,6 +391,79 @@ const animatieBeeld2 = () => {
       }
     }
   );
+};
+
+const animatieBeeld51 = () => {
+  let tlBeeld51Image = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".beeld5Image",
+      markers: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 150%",
+      end: "bottom 100%",
+      scrub: 1,
+    },
+  });
+
+    tlBeeld51Image.from(".beeld5Image", {
+      duration: 20,
+      y: 100,
+      ease: "sine.in",
+    });
+       tlBeeld51Image.from(
+         ".beeld51Image",
+         {
+           duration: 20,
+           opacity:0,
+           ease: "sine.in",
+         },
+         "<"
+       );
+  }
+const animatieBeeld5 = () => {
+  let tlBeeld5Image = gsap.timeline(
+    {
+      scrollTrigger: {
+        duration: 60,
+        trigger: ".beeld5",
+        pin: true,
+        markers: true,
+        toggleActions: "play none none reverse",
+        start: "bottom 100%",
+        end: "bottom 0%",
+        scrub: 1,
+      },
+    }
+    
+  );
+   tlBeeld5Image.from(".beeld5Background", {
+     duration: 2,
+     opacity: 0.9,
+     ease: "sine.in",
+   });
+    tlBeeld5Image.from(
+      ".beeld5Tekst",
+      {
+        duration: 0.5,
+        scale: 0,
+        opacity: 0,
+        ease: "sine.in",
+      },
+      "<-0.05"
+    );
+
+    tlBeeld5Image.from(".beeld5Tekst>h4", {
+      duration: 0.3,
+      y: -500,
+      opacity: 0,
+      ease: "sine.in",
+    },"<+0.25");
+        tlBeeld5Image.from(".beeld5Tekst>p", {
+          duration: 0.3,
+          y: 400,
+          opacity: 0,
+          ease: "sine.in",
+        }, "<");
 };
 
 init();
