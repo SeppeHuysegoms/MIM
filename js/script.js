@@ -4,8 +4,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 let huidigPuzzelStuk;
 let nieuwPuzzelStuk;
-var randomVolgorde = ["4", "2", "8", "5", "1", "6", "7", "9", "3"];
-const correcteVolgorde = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+let kliks = 0;
+var randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
 const init = () => {
   const $hamburgerMenu = document.querySelector(".hamburger");
 
@@ -22,41 +22,20 @@ const init = () => {
     puzzelstuk.addEventListener("drop", dragDrop);
     puzzelstuk.addEventListener("dragend", dragEnd);
 
+    puzzelstuk.addEventListener("click", touchStart);
+
+    puzzelstuk.setAttribute("draggable", true);
+
     document.querySelector(".test2").appendChild(puzzelstuk);
   }
 
   const $beeld8 = document.querySelector(".beeld8");
   $beeld8.classList.add("beeld8JS");
+  for (const child of $beeld8.children) {
+    child.classList.add("onderdeelJS");
+  }
 
-     let load = gsap.from(".onderdeel1", {
-       yPercent: 100,
-       opacity: 0,
-       ease: "sine.in",
-       duration: 2,
-     });
-
-  ScrollTrigger.create({
-    trigger: ".beeld8",
-    start: "left 30%",
-    end: "left 0%",
-    toggleActions: "play none none reverse",
-    animation: load,
-    scrub: 1,
-  });
-
-  let pinBeeld8 = gsap.from(".beeld8", {
-    duration: 350,
-  });
-
-  ScrollTrigger.create({
-    trigger: ".beeld8",
-    start: "bottom 100%",
-    end: "bottom -45%",
-    toggleActions: "play none none reverse",
-    animation: pinBeeld8,
-    scrub: 1,
-    pin: true,
-  });
+  animatieOnderdelen();
 };
 
 const test = () => {
@@ -84,14 +63,35 @@ const dragDrop = (e) => {
   nieuwPuzzelStuk = e.currentTarget;
 };
 
-function dragEnd() {
+const dragEnd = () => {
   let huidigImage = huidigPuzzelStuk.src;
   let nieuweImage = nieuwPuzzelStuk.src;
 
   huidigPuzzelStuk.src = nieuweImage;
   nieuwPuzzelStuk.src = huidigImage;
   checkPuzzel();
-}
+};
+
+const touchStart = (e) => {
+  if (kliks == 0) {
+    kliks += 1;
+    console.log(e.currentTarget);
+    huidigPuzzelStuk = e.currentTarget;
+  } else {
+    kliks += 1;
+    nieuwPuzzelStuk = e.currentTarget;
+  }
+
+  if (kliks == 2) {
+    kliks = 0;
+    let huidigImage = huidigPuzzelStuk.src;
+    let nieuweImage = nieuwPuzzelStuk.src;
+
+    huidigPuzzelStuk.src = nieuweImage;
+    nieuwPuzzelStuk.src = huidigImage;
+    checkPuzzel();
+  }
+};
 
 const checkPuzzel = () => {
   const $puzzel = document.querySelector(".test2");
@@ -111,6 +111,62 @@ const checkPuzzel = () => {
     if (goed == 9) {
       console.log("Je hebt gewonnen!");
     }
+  }
+};
+
+const animatieOnderdelen = () => {
+  let tlOnderdelen = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".beeld8",
+      markers: true,
+      toggleActions: "play none none reverse",
+      pin: true,
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  for (let i = 1; i < 6; i++) {
+    tlOnderdelen.from(".onderdeel" + i + ">.onderdeelImageMask", {
+      duration: 15,
+      yPercent: 100,
+      ease: "sine.in",
+    });
+
+    tlOnderdelen.from(
+      ".onderdeel" + i + ">.onderdeelImageMask>img",
+      {
+        duration: 15,
+        yPercent: -100,
+        ease: "sine.in",
+      },
+      "<"
+    );
+    tlOnderdelen.from(
+      ".onderdeel" + i + ">.onderdeelTekst",
+      {
+        duration: 20,
+        opacity: 0,
+        ease: "sine.in",
+      },
+      "<25"
+    );
+
+    tlOnderdelen.to(".onderdeel" + i + ">.onderdeelTekst", {
+      duration: 20,
+      opacity: 0,
+      ease: "sine.in",
+    },"<35");
+    tlOnderdelen.to(
+      ".onderdeel" + i + ">.onderdeelImageMask>img",
+      {
+        duration: 20,
+        opacity: 0,
+        ease: "sine.in",
+      },
+      "<5"
+    );
   }
 };
 init();

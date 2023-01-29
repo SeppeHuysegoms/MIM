@@ -11,34 +11,67 @@
   <body>
     <header>
       <div class="headerContent">
-        <h1>De
-           Great
-            Highland
-             Doedelzak</h1>
+        <h1>De 
+          Great 
+          Highland 
+          Doedelzak</h1>
 
         <picture class="headerImage">
-          <source media="(min-width: 1000px)" srcset="assets/header2.png" />
+          <source
+          media="(min-width: 1000px)"
+            sizes="(min-width: 1000px) 120vw, (min-width: 1200px) 110vw,  100vw "
+            srcset="
+            assets/header2-2400.avif 2400w,
+            assets/header2-2800.avif 2800w,
+            assets/header2-3000.avif 3000w,
+            assets/header2-4000.avif 4000w
+            "
+            type="image/avif"
+          />
 
-          <source
-            sizes="650px"
-            media="(min-width: 1000px)"
+            <source
+          media="(min-width: 1000px)"
+            sizes="(min-width: 1000px) 120vw, (min-width: 1200px) 110vw,  100vw "
             srcset="
-              assets/header2-650.avif   650w,
-              assets/header2-900.avif  1000w,
-              assets/header2-1200.avif 2400w
+            assets/header2-2400.webp 2400w,
+            assets/header2-2800.webp 2800w,
+            assets/header2-3000.webp 3000w,
+            assets/header2-4000.webp 4000w
+            "
+            type="image/webp"
+          />
+
+            <source
+            sizes="
+            (max-width: 300px) 220vw,
+            (max-width: 500px) 200vw,
+            (max-width: 800px) 150vw,
+            100vw"
+            
+            srcset="
+            assets/headermobile-2000.avif 2000w,
+            assets/headermobile-2400.avif 2400w,
+            assets/headermobile-2800.avif 2800w
             "
             type="image/avif"
           />
-          <source
-            sizes="650px"
-            media="(min-width: 1000px)"
+
+              <source
+            sizes="
+            (max-width: 300px) 220vw,
+            (max-width: 500px) 200vw,
+            (max-width: 800px) 150vw,
+            100vw"
+            
             srcset="
-              assets/header2-650.webp   650w,
-              assets/header2-900.webp   900w,
-              assets/header2-1200.webp 1200w
+            assets/headermobile-2000.webp 2000w,
+            assets/headermobile-2400.webp 2400w,
+            assets/headermobile-2800.webp 2800w
             "
-            type="image/avif"
+            type="image/webp"
           />
+          
+          <source media="(min-width: 1000px)" srcset="assets/header2.png" />
           <img
             class="headerImage"
             src="assets/headermobile.png"
@@ -66,17 +99,16 @@
           </ul>
 
           <div class="taalMobile">
-          <p class="taalActive">NL</p>
-          <p class="fr">FR</p>
-          <p>ENG</p>
+            <p class="taalActive">NL</p>
+            <p class="fr">FR</p>
+            <p>ENG</p>
+          </div>
         </div>
-
-        </div>
-          <ul class="menu">
-            <li><a href="#">Muzikaal wapen</a></li>
-            <li><a href="#">Opbouw</a></li>
-            <li><a href="#">Geluid</a></li>
-          </ul>
+        <ul class="menu">
+          <li><a href="#">Muzikaal wapen</a></li>
+          <li><a href="#">Opbouw</a></li>
+          <li><a href="#">Geluid</a></li>
+        </ul>
         <div class="taal">
           <p class="nl">NL</p>
           <img class="pijl" src="assets/pijl.png" alt="pijltje naar beneden" />
@@ -86,11 +118,23 @@
 
     <main>
       <section class="beeld2">
-        <img
+        <picture class="beeld2Image1">
+          <source
+            sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
+            srcset="
+            assets/beeld21-340.avif 340w,
+            assets/beeld21-600.avif 600w,
+            assets/beeld21-1000.avif 1000w
+            "
+            type="image/avif">
+  
+           <img
           class="beeld2Image1"
           src="assets/beeld21.png"
           alt="Schotse troepen"
         />
+        </picture>
+       
         <div class="beeld2Tekst">
           <h2 class="beeld2Titel">
             <span class="beeld2TitelHigh">1746</span>
@@ -165,11 +209,15 @@
           </div>
           <div class="beeld5">
             <div class="beeld5Image">
-              <img
+              <picture class="beeld51Image">
+
+ <img
                 class="beeld51Image"
                 src="assets/beeld52.png"
                 alt="Luid geschreeuw van doedelzak"
               />
+              </picture>
+             
             </div>
             <div class="beeld5Background">
               <div class="beeld5Tekst">
@@ -264,16 +312,18 @@
             <div class="onderdeel">
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel1.png"
                 alt="doedelzak"
               />
             </div>
-            <section class="onderdeel onderdeel1">
+      <section class="onderdeel onderdeel1">
+              <div class="onderdeelImageMask"> 
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel2.png"
                 alt="doedelzak"
               />
+              </div>
               <div class="onderdeelTekst">
                 <h4>Blaaspijp</h4>
                 <p>
@@ -289,13 +339,14 @@
                 </p>
               </div>
             </section>
-
-            <section class="onderdeel">
+            /<section class="onderdeel onderdeel2">
+              <div class="onderdeelImageMask"> 
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel3.png"
                 alt="doedelzak"
               />
+              </div>
               <div class="onderdeelTekst">
                 <h4>Tenor-drones</h4>
                 <p>
@@ -311,12 +362,14 @@
               </div>
             </section>
 
-            <section class="onderdeel">
+            <section class="onderdeel onderdeel3">
+              <div class="onderdeelImageMask"> 
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel4.png"
                 alt="doedelzak"
               />
+              </div>
               <div class="onderdeelTekst">
                 <h4>Bas-drone</h4>
                 <p>
@@ -331,12 +384,14 @@
               </div>
             </section>
 
-            <section class="onderdeel">
+            <section class="onderdeel onderdeel4">
+              <div class="onderdeelImageMask">
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel5.png"
                 alt="doedelzak"
               />
+              </div>
               <div class="onderdeelTekst">
                 <h4>Luchtzak</h4>
                 <p>
@@ -352,12 +407,14 @@
                 </p>
               </div>
             </section>
-            <section class="onderdeel">
+            <section class="onderdeel onderdeel5">
+              <div class="onderdeelImageMask">
               <img
                 class="onderdeelImage"
-                src="assets/Onderdeel1.png"
+                src="assets/onderdeel6.png"
                 alt="doedelzak"
               />
+              </div>
               <div class="onderdeelTekst">
                 <h4>Chanter</h4>
                 <p>
@@ -443,8 +500,7 @@
             Sleep de verschillende stukken van de doedelzak terug op de juiste
             plaats.
           </p>
-       <div class="test2">
-        </div>
+          <div class="test2"></div>
         </article>
       </section>
 
