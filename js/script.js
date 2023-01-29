@@ -68,9 +68,10 @@ const init = () => {
     child.classList.add("onderdeelJS");
   }
   animatieBeeld2();
+    animatieBeeld51();
+    animatieBeeld5();
   animatieOnderdelen();
-  animatieBeeld51();
-  animatieBeeld5();
+
 
   document
     .querySelector(".buttonIers")
