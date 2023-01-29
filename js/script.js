@@ -34,8 +34,12 @@ let randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
 
 const init = () => {
   const $hamburgerMenu = document.querySelector(".hamburger");
+  const $menuMobile = document.querySelector(".menuMobile");
+  for (const child of $menuMobile.children) {
+    child.addEventListener("click", toggleMenu);;
+  }
 
-  $hamburgerMenu.addEventListener("click", test);
+  $hamburgerMenu.addEventListener("click", toggleMenu);
 
   for (let i = 0; i < 9; i++) {
     let puzzelstuk = document.createElement("img");
@@ -64,9 +68,40 @@ const init = () => {
   document.querySelector(".buttonStart").addEventListener("click", startTest3);
   document.querySelector(".buttonIers").style.display = "none";
   document.querySelector(".buttonSchots").style.display = "none";
+  document.querySelector(".beeld12Tekst1").style.display = "none";
+  document.querySelector(".beeld12Tekst2").style.display = "none";
+  document.querySelector(".beeld12Image1").addEventListener("click", revealTekst);
+  document
+    .querySelector(".beeld12Image2")
+    .addEventListener("click", revealTekst2);
+    document
+      .querySelector(".beeld12Image1")
+      .addEventListener("mouseover", revealTekst);
+    document
+      .querySelector(".beeld12Image2")
+      .addEventListener("mouseover", revealTekst2);
+          document
+            .querySelector(".beeld12Image1")
+            .addEventListener("mouseout", hideTekst);
+          document
+            .querySelector(".beeld12Image2")
+            .addEventListener("mouseout", hideTekst2);
 };
 
-const test = () => {
+const revealTekst = () => {
+  document.querySelector(".beeld12Tekst1").style.display = "block";
+}
+const revealTekst2 = () => {
+  document.querySelector(".beeld12Tekst2").style.display = "block";
+};
+const hideTekst = () => {
+  document.querySelector(".beeld12Tekst1").style.display = "none";
+};
+const hideTekst2 = () => {
+  document.querySelector(".beeld12Tekst2").style.display = "none";
+};
+
+const toggleMenu = () => {
   document.querySelector(".navMobile").classList.toggle("menuShow");
   document.querySelector(".hamburger").classList.toggle("hamburgerShow");
   document.querySelector("body").classList.toggle("overflow-y-hidden");
@@ -185,7 +220,7 @@ const animatieOnderdelen = () => {
 
   for (let i = 1; i < 6; i++) {
     tlOnderdelen.from(".onderdeel" + i + ">.onderdeelImageMask", {
-      duration: 15,
+      duration: 25,
       yPercent: 100,
       ease: "sine.in",
     });
@@ -193,7 +228,7 @@ const animatieOnderdelen = () => {
     tlOnderdelen.from(
       ".onderdeel" + i + ">.onderdeelImageMask>img",
       {
-        duration: 15,
+        duration: 25,
         yPercent: -100,
         ease: "sine.in",
       },
@@ -273,7 +308,7 @@ const animatieBeeld2 = () => {
           y: 0,
           position: "absolute",
         },
-        "<5"
+        "<10"
       );
 
       tlbeeld2.to(

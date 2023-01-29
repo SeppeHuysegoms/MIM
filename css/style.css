@@ -42,6 +42,8 @@
     transform: translate(0,0);
   }
 }
+
+
 .test2 {
     width: 37vw;
     height: 37vw;
@@ -74,6 +76,7 @@ body {
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 *,
 *::before,
@@ -95,6 +98,15 @@ html {
 
 .pijl{
     display: none;
+}
+
+strong{
+    font-weight: 600;
+    color: #124b91;
+}
+
+.strongWhite{
+    color: var(--color-white);
 }
 .navMobile{
     transform: translateX(150%);
@@ -178,12 +190,16 @@ h4 {
 
 a{
     text-decoration: none;
+        font-family: bio-sans, sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .h1Mask{
     overflow: hidden;
     max-width: 55vw;
     margin: 0 2vw 0 43vw;
+    z-index: 85;
 }
 h1 {
   color: var(--color-blue);
@@ -2300,11 +2316,12 @@ margin: 0;
     align-items: center;
     gap: 5vw;
     margin: 3vw 0 15vw;
+    padding-bottom: 20vh;
   }
 
   .beeld2Titel {
-    grid-template-columns: 20vw 25vw;
-    grid-template-rows: 18vw;
+    grid-template-columns: 19rem 22rem;
+    grid-template-rows: 13rem;
   }
   .beeld4 {
     display: flex;
@@ -2331,8 +2348,8 @@ margin: 0;
   }
 
   .beeld4Titel {
-    grid-template-columns: 25vw 30vw;
-    grid-template-rows: 8vw 4vw;
+    grid-template-columns: 21rem 30vw;
+    grid-template-rows: 6rem 4rem;
   }
 
   .beeld5Tekst {
@@ -2352,8 +2369,8 @@ margin: 0;
   }
 
   .chapter12Titel {
-    grid-template-rows: 10vw 10vw;
-    grid-template-columns: 20vw 40vw;
+    grid-template-rows: 8rem 8rem;
+    grid-template-columns: 15rem 35rem;
   }
 
   .chapter12Tekst {
@@ -2427,7 +2444,7 @@ margin: 0;
   .beeld7Tekst > h3 {
     margin: 3vw 0 2vw;
     justify-self: end;
-    grid-template-rows: 11vw 8vw 9vw;
+    grid-template-rows: 9rem 7rem 8rem;
   }
 
   .beeld7TitelDown,
@@ -2463,6 +2480,11 @@ margin: 0;
 
   .onderdeelTekst > p {
     width: 50vw;
+  }
+
+    .beeld11Titel{
+    grid-template-columns: 25rem 25rem;
+    grid-template-rows: 5rem 7rem;
   }
 
    .beeld13Tekst>p {
@@ -2513,7 +2535,7 @@ margin: 0;
 }
 
 .beeld14{
-    grid-template-rows: 20vw 13rem;
+    grid-template-rows: 20rem 13rem;
 }
 
 .beeld14>p{
