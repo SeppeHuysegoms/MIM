@@ -5,37 +5,65 @@ gsap.registerPlugin(ScrollTrigger);
 let huidigPuzzelStuk;
 let nieuwPuzzelStuk;
 let kliks = 0;
-var randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
+
+const audioTest31 = new Audio("./assets/test31.mp3");
+const audioTest32 = new Audio("./assets/test32.mp3");
+const audioTest33 = new Audio("./assets/test33.mp3");
+const audioTest34 = new Audio("./assets/test34.mp3");
+const audioTest35 = new Audio("./assets/test35.mp3");
+const audioTest3Antwoord = ["Iers", "Schots", "Iers", "Iers", "Schots"];
+const feedbackJuist = [
+  "De Engelse Kunnen je niet foppen",
+  "Duidelijk ons signaal!",
+  "Je bent ze te slim af",
+  "Goed gehoord!",
+  "Hoor dat mooie Schotse geluid",
+];
+const feedbackFout = [
+  "Aj verkeerd gegokt!",
+  "Nee dit was een signaal van ons",
+  "Ze hebben je weer beetgenomen",
+  "Dit was duidelijk een Iers signaal",
+  "Oei dit was een Schots signaal",
+];
+let audioTest3 = 0;
+let nextAudio = 1;
+let playing = audioTest31;
+
+let randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
+
 const init = () => {
   const $hamburgerMenu = document.querySelector(".hamburger");
 
   $hamburgerMenu.addEventListener("click", test);
+
   for (let i = 0; i < 9; i++) {
     let puzzelstuk = document.createElement("img");
     puzzelstuk.id = "puzzelstuk" + i.toString();
     puzzelstuk.src = "./assets/puzzelstuk" + randomVolgorde.shift() + ".png";
 
-    puzzelstuk.addEventListener("dragstart", dragStart);
-    puzzelstuk.addEventListener("dragover", dragOver);
-    puzzelstuk.addEventListener("dragenter", dragEnter);
-    puzzelstuk.addEventListener("dragleave", dragLeave);
-    puzzelstuk.addEventListener("drop", dragDrop);
-    puzzelstuk.addEventListener("dragend", dragEnd);
-
     puzzelstuk.addEventListener("click", touchStart);
-
-    puzzelstuk.setAttribute("draggable", true);
-
     document.querySelector(".test2").appendChild(puzzelstuk);
   }
 
   const $beeld8 = document.querySelector(".beeld8");
   $beeld8.classList.add("beeld8JS");
+
   for (const child of $beeld8.children) {
     child.classList.add("onderdeelJS");
   }
-
+  animatieBeeld2();
   animatieOnderdelen();
+
+  document
+    .querySelector(".buttonIers")
+    .addEventListener("click", controleerTest3);
+  document
+    .querySelector(".buttonSchots")
+    .addEventListener("click", controleerTest3);
+  document.querySelector(".buttonStart").addEventListener("click", startTest3);
+  document.querySelector(".buttonIers").style.display = "none";
+  document.querySelector(".buttonSchots").style.display = "none";
 };
 
 const test = () => {
@@ -44,32 +72,60 @@ const test = () => {
   document.querySelector("body").classList.toggle("overflow-y-hidden");
 };
 
-const dragStart = (e) => {
-  console.log(e.currentTarget);
-  huidigPuzzelStuk = e.currentTarget;
+const startTest3 = () => {
+  console.log("test3");
+  document.querySelector(".buttonIers").style.display = "block";
+  document.querySelector(".buttonSchots").style.display = "block";
+
+  document.querySelector(".buttonStart").style.display = "none";
+  audioTest31.play();
 };
 
-const dragOver = (e) => {
-  e.preventDefault();
-};
+const controleerTest3 = (e) => {
+  let klasse = e.currentTarget.className;
+  let antwoord;
+  let $feedback = document.querySelector(".beeld13Tekst>.instructies");
+  if (klasse.includes("Iers")) {
+    antwoord = "Iers";
+  } else {
+    antwoord = "Schots";
+  }
+  playing.pause();
 
-const dragEnter = (e) => {
-  e.preventDefault();
-};
-
-const dragLeave = () => {};
-
-const dragDrop = (e) => {
-  nieuwPuzzelStuk = e.currentTarget;
-};
-
-const dragEnd = () => {
-  let huidigImage = huidigPuzzelStuk.src;
-  let nieuweImage = nieuwPuzzelStuk.src;
-
-  huidigPuzzelStuk.src = nieuweImage;
-  nieuwPuzzelStuk.src = huidigImage;
-  checkPuzzel();
+  if (antwoord == audioTest3Antwoord[audioTest3]) {
+    document.querySelector(".fragment" + nextAudio).src =
+      "./assets/fragmentJuist.png";
+    $feedback.innerText = feedbackJuist[audioTest3];
+    console.log(feedbackJuist[audioTest3]);
+  } else {
+    console.log("Je hebt verloren!");
+    document.querySelector(".fragment" + nextAudio).src =
+      "./assets/fragmentFout.png";
+    $feedback.innerText = feedbackFout[nextAudio];
+  }
+  audioTest3 += 1;
+  nextAudio += 1;
+  switch (nextAudio) {
+    case 2:
+      audioTest32.play();
+      playing = audioTest32;
+      break;
+    case 3:
+      audioTest33.play();
+      playing = audioTest33;
+      break;
+    case 4:
+      audioTest34.play();
+      playing = audioTest34;
+      break;
+    case 5:
+      audioTest35.play();
+      playing = audioTest35;
+      break;
+    case 6:
+      document.querySelector(".buttonIers").style.display = "none";
+      document.querySelector(".buttonSchots").style.display = "none";
+  }
 };
 
 const touchStart = (e) => {
@@ -153,11 +209,15 @@ const animatieOnderdelen = () => {
       "<25"
     );
 
-    tlOnderdelen.to(".onderdeel" + i + ">.onderdeelTekst", {
-      duration: 20,
-      opacity: 0,
-      ease: "sine.in",
-    },"<35");
+    tlOnderdelen.to(
+      ".onderdeel" + i + ">.onderdeelTekst",
+      {
+        duration: 20,
+        opacity: 0,
+        ease: "sine.in",
+      },
+      "<35"
+    );
     tlOnderdelen.to(
       ".onderdeel" + i + ">.onderdeelImageMask>img",
       {
@@ -169,4 +229,85 @@ const animatieOnderdelen = () => {
     );
   }
 };
+const animatieBeeld2 = () => {
+  const mm = gsap.matchMedia();
+  mm.add(
+    {
+      isXs: "(max-width: 1000px)",
+      isMd: "(min-width: 400px)",
+    },
+    (context) => {
+      const { conditions } = context;
+
+      const tlbeeld2 = gsap.timeline({
+        scrollTrigger: {
+          duration: 10,
+          trigger: ".beeld2",
+          markers: true,
+          toggleActions: "play none none reverse",
+          pin: true,
+          start: "bottom 100%",
+          end: "bottom 0%",
+          scrub: 1,
+        },
+      });
+
+      tlbeeld2.to(
+        ".beeld2Tekst",
+        {
+          duration: 10,
+          opacity: 0,
+        },
+        "<5"
+      );
+
+      tlbeeld2.to(
+        ".beeld2Image1",
+        {
+          duration: 10,
+          xPercent: -40,
+          left: "50%",
+          yPercent: -50,
+          top: "40%",
+          x: 0,
+          y: 0,
+          position: "absolute",
+        },
+        "<5"
+      );
+
+      tlbeeld2.to(
+        ".beeld2Image2",
+        {
+          duration: 10,
+          xPercent: -80,
+          left: "50%",
+          top: "50%",
+        },
+        "<"
+      );
+
+      if (conditions.isXs) {
+        tlbeeld2.to(
+          ".beeld2Image1",
+          {
+            duration: 10,
+            scale: 1.25,
+          },
+          "<"
+        );
+
+        tlbeeld2.to(
+          ".beeld2Image2",
+          {
+            duration: 10,
+            scale: 1.5,
+          },
+          "<"
+        );
+      }
+    }
+  );
+};
+
 init();
