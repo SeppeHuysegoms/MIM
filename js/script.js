@@ -11,6 +11,8 @@ const audioTest32 = new Audio("./assets/test32.mp3");
 const audioTest33 = new Audio("./assets/test33.mp3");
 const audioTest34 = new Audio("./assets/test34.mp3");
 const audioTest35 = new Audio("./assets/test35.mp3");
+const audioTest1Geslaagd = new Audio("./assets/test1Geslaagd.mp3");
+const audioTest1Gefaald = new Audio("./assets/test1Gefaald.mp3");
 const audioTest3Antwoord = ["Iers", "Schots", "Iers", "Iers", "Schots"];
 const feedbackJuist = [
   "De Engelse Kunnen je niet foppen",
@@ -29,6 +31,15 @@ const feedbackFout = [
 let audioTest3 = 0;
 let nextAudio = 1;
 let playing = audioTest31;
+
+const maxTimeTest1 = 10;
+let timeTest1 = 0;
+let clicks = 0;
+let timer;
+let minClicks = 50;
+
+const $counterClicks = document.querySelector(".chapter12Clicks");
+const $time = document.querySelector(".chapter12Time");
 
 let randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
 
@@ -86,6 +97,40 @@ const init = () => {
           document
             .querySelector(".beeld12Image2")
             .addEventListener("mouseout", hideTekst2);
+
+              const $fotoTest1 = document.querySelector(".chapter12Image");
+              $fotoTest1.addEventListener("click", countClicks);
+};
+
+const countClicks = () => {
+  if (clicks === 0) {
+    timer = setInterval(startTimer, 500);
+  }
+
+  if (timeTest1 < maxTimeTest1) {
+    clicks += 1;
+    $counterClicks.innerHTML = clicks + " kliks";
+  }
+};
+
+const startTimer = () => {
+  timeTest1 += 0.5;
+  console.log(timeTest1);
+  $time.innerHTML = timeTest1 + "sec.";
+
+  if (timeTest1 === maxTimeTest1) {
+    clearInterval(timer);
+    if (clicks < minClicks) {
+      $time.innerHTML = "Je signaal";
+      $counterClicks.innerHTML = "was te zwak";
+      audioTest1Gefaald.play();
+    }else{
+      $time.innerHTML = "Je signaal";
+      $counterClicks.innerHTML = "was sterk genoeg";
+      audioTest1Geslaagd.play();
+
+    }
+  }
 };
 
 const revealTekst = () => {
