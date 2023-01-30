@@ -1,6 +1,68 @@
 import gsap, { SteppedEase } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
+import delay from "./utils/delay";
+import loadImageAsync from "./utils/loadImageAsync";
+
+const mainImages = [
+  { fileName: "backgroundIntro1" },
+  { fileName: "backgroundIntro1Desk" },
+  { fileName: "backgroundIntro2" },
+  { fileName: "backgroundIntro2Desk" },
+  { fileName: "backgroundIntro3" },
+  { fileName: "beeld4" },
+  { fileName: "beeld5Background" },
+  { fileName: "beeld5BackgroundTekst" },
+  { fileName: "beeld5BackgroundTekst2" },
+  { fileName: "beeld6" },
+  { fileName: "beeld11Helft1" },
+  { fileName: "beeld11Helft2" },
+  { fileName: "beeld21" },
+  { fileName: "beeld22" },
+  { fileName: "beeld52" },
+  { fileName: "beeld91" },
+  { fileName: "beeld92" },
+  { fileName: "beeld93" },
+  { fileName: "beeld131" },
+  { fileName: "beeld132" },
+  { fileName: "beeld141" },
+  { fileName: "beeld142" },
+  { fileName: "beeld151" },
+  { fileName: "beeld152" },
+  { fileName: "chapter3Image" },
+  { fileName: "facebook" },
+  { fileName: "fragment1" },
+  { fileName: "fragment2" },
+  { fileName: "fragment3" },
+  { fileName: "fragment4" },
+  { fileName: "fragment5" },
+  { fileName: "greenline" },
+  { fileName: "greenline2" },
+  { fileName: "greenline3" },
+  { fileName: "headermobile" },
+  { fileName: "insta" },
+  { fileName: "Intro1Zwaard" },
+  { fileName: "onderdeel2" },
+  { fileName: "onderdeel3" },
+  { fileName: "onderdeel4" },
+  { fileName: "onderdeel5" },
+  { fileName: "onderdeel6" },
+  { fileName: "pijl" },
+  { fileName: "pijp" },
+  { fileName: "pijp270" },
+  { fileName: "puzzelstuk1" },
+  { fileName: "puzzelstuk2" },
+  { fileName: "puzzelstuk3" },
+  { fileName: "puzzelstuk4" },
+  { fileName: "puzzelstuk5" },
+  { fileName: "puzzelstuk6" },
+  { fileName: "puzzelstuk7" },
+  { fileName: "puzzelstuk8" },
+  { fileName: "puzzelstuk9" },
+  { fileName: "twitter" },
+];
+
+
 
 let huidigPuzzelStuk;
 let nieuwPuzzelStuk;
@@ -42,7 +104,52 @@ const $counterClicks = document.querySelector(".chapter12Clicks");
 const $time = document.querySelector(".chapter12Time");
 
 let randomVolgorde = ["5", "8", "2", "6", "1", "4", "3", "9", "7"];
+const imagePaths = mainImages.map((i) => {
+  return `./assets/${i.fileName}.png`;
+});
 
+let images = [];
+let numImagesLoaded = 0;
+const $preloaderPercentage = document.querySelector(".preloader__percentage");
+const $preloaderVisual = document.querySelector(".preloader__visual");
+
+const preload = async () => {
+  // preload the images
+  $preloaderVisual.classList.add("preloader__visual--has-transition");
+  onProgress();
+  document.documentElement.classList.add("is-loading");
+  document.querySelector("body").classList.add("overflow-y-hidden");
+  images = await Promise.all(
+    imagePaths.map(async (path) => {
+      const image = await loadImageAsync(path);
+      numImagesLoaded++;
+      onProgress();
+      return image;
+    })
+  );
+  preloadComplete();
+};
+
+const onProgress = () => {
+  const relativeProgress = numImagesLoaded / imagePaths.length;
+  const progressPercentage = Math.round(relativeProgress * 100);
+  console.log(
+    numImagesLoaded,
+    imagePaths.length,
+    relativeProgress,
+    progressPercentage
+  );
+  $preloaderPercentage.textContent = `${progressPercentage}%`;
+  $preloaderVisual.style.transform = `scale3d(1, ${relativeProgress}, 1)`;
+};
+
+const preloadComplete = async () => {
+  console.log("preload complete")
+  document.documentElement.classList.remove("is-loading");
+  document.querySelector("body").classList.remove("overflow-y-hidden");
+  await delay(350);
+  init();
+};
 const init = () => {
   const $hamburgerMenu = document.querySelector(".hamburger");
   const $menuMobile = document.querySelector(".menuMobile");
@@ -55,7 +162,7 @@ const init = () => {
   for (let i = 0; i < 9; i++) {
     let puzzelstuk = document.createElement("img");
     puzzelstuk.id = "puzzelstuk" + i.toString();
-    image.alt = "puzzelstuk van doedelzak";
+    puzzelstuk.alt = "puzzelstuk van doedelzak";
     puzzelstuk.src = "./assets/puzzelstuk" + randomVolgorde.shift() + ".png";
 
     puzzelstuk.addEventListener("click", touchStart);
@@ -68,20 +175,33 @@ const init = () => {
   for (const child of $beeld8.children) {
     child.classList.add("onderdeelJS");
   }
-  animatieBeeld2();
-  animatieChapter1();
+  let width = screen.width;
+  if (width > 1000) {
+    animatieBeeld2(100,70);
+     animatieChapter1(90);
+  } else {
+    animatieBeeld2(80,0);
+     animatieChapter1(70);
+  }
   animatieBeeld4();
   animatieBeeld51();
-  animatieBeeld5();
-  animatieChapter12();
-  let width = screen.width;
-  if (width > 1400) {
-    animatieChapter2(110);
-  } else {
-    animatieChapter2(85);
-  }
 
-  animatieBeeld7();
+  if (width > 1400) {
+    animatieBeeld5(100);
+  }else{
+ animatieBeeld5(80);
+  }
+ 
+  animatieChapter12();
+
+  if (width > 1000) {
+    animatieChapter2(110);
+    
+  } else {
+    animatieChapter2(70);
+  }
+  animatieBeeld7(100);
+  
   animatieOnderdelen();
   animatieBeeld9();
   if (width > 1400) {
@@ -346,7 +466,7 @@ const animatieOnderdelen = () => {
     );
   }
 };
-const animatieBeeld2 = () => {
+const animatieBeeld2 = (start, end) => {
   const mm = gsap.matchMedia();
   mm.add(
     {
@@ -362,8 +482,8 @@ const animatieBeeld2 = () => {
           trigger: ".beeld2",
           toggleActions: "play none none reverse",
           pin: true,
-          start: "bottom 100%",
-          end: "bottom 70%",
+          start: "bottom "+ start +"%",
+          end: "bottom "+ end+"%",
           scrub: 1,
         },
       });
@@ -441,14 +561,14 @@ const animatieBeeld2 = () => {
     }
   );
 };
-const animatieChapter1 = () => {
+const animatieChapter1 = (start) => {
   let tlChapter1 = gsap.timeline({
     scrollTrigger: {
       duration: 100,
       trigger: ".chapter1Intro",
       pin: true,
       toggleActions: "play none none reverse",
-      start: "bottom 90%",
+      start: "bottom "+start+"%",
       end: "bottom 0%",
       scrub: 1,
     },
@@ -593,14 +713,14 @@ const animatieChapter3 = (start) => {
   );
 };
 
-const animatieBeeld7 = () => {
+const animatieBeeld7 = (start) => {
   let tlBeeld7 = gsap.timeline({
     scrollTrigger: {
       duration: 100,
       trigger: ".beeld7",
       pin: true,
       toggleActions: "play none none reverse",
-      start: "bottom 100%",
+      start: "bottom "+start+"%",
       end: "bottom 0%",
       scrub: 1,
     },
@@ -722,14 +842,14 @@ const animatieBeeld51 = () => {
     "<"
   );
 };
-const animatieBeeld5 = () => {
+const animatieBeeld5 = (start) => {
   let tlBeeld5Image = gsap.timeline({
     scrollTrigger: {
       duration: 60,
       trigger: ".beeld5",
       pin: true,
       toggleActions: "play none none reverse",
-      start: "bottom 100%",
+      start: "bottom "+start+"%",
       end: "bottom 0%",
       scrub: 1,
     },
@@ -847,7 +967,7 @@ const animatieBeeld9 = () => {
   });
   tlBeeld9Image2.from(".beeld9Deel2Image", {
     duration: 20,
-    rotate: -20,
+    rotate: -10,
   });
 
   tlBeeld9Image2.from(
@@ -1031,4 +1151,4 @@ const animatieBeeld15 = () => {
    );
 };
 
-init();
+preload();

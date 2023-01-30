@@ -22,7 +22,48 @@
   --font-size-mobile-button: clamp(1.2rem, calc(1rem + 2vw), 1.7rem);
 }
 
+/*preloader*/
+.preloader {
 
+  display: none;
+  background-color: var(--color-blue);
+      font-family: bc-novatica-cyr, sans-serif;
+  font-weight: 500;
+  color: var(--color-white);
+  font-size: 2em;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__visual {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--color-green);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale3d(1, 0, 1);
+  transform-origin: bottom;
+}
+
+.preloader__visual--has-transition {
+  transition: all 0.5s ease;
+}
+
+.is-loading .preloader {
+  display: flex;
+}
+
+.is-loading body {
+  overflow: hidden;
+}
 /*animations*/
 
 @keyframes revealTitel {
@@ -944,7 +985,8 @@ h3 > .beeld7TitelHigh2 {
   overflow-y: clip;
 }
 
-.chapter3Intro > img {
+.chapter3Intro > img,
+.chapter3Intro > picture {
   width: 95vw;
   margin: 50vw 0 -5vw;
   rotate: -45deg;
@@ -1080,7 +1122,8 @@ h3 > .beeld11TitelHigh {
   margin: 2vh auto 0;
 }
 
-.fragmenten > img {
+.fragmenten > img,
+.fragmenten > picture {
   width: 12.5vw;
 }
 
@@ -1412,7 +1455,8 @@ footer > p {
         border: var(--color-blue) 1vw solid;
     }
 
-    .chapter3Intro> img{
+    .chapter3Intro> img,
+    .chapter3Intro> picture{
         width: 85vw;
         margin-top: 20vw;
     }
@@ -1738,7 +1782,8 @@ justify-self: center;
     .beeld13Tekst>p{
         max-width: 80vw;
     }
-    .fragmenten > img {
+    .fragmenten > img,
+    .fragmenten>picture {
     width: 10vw;
 }
 
@@ -2164,7 +2209,8 @@ justify-self: center;
     justify-content: center;
 }
 
-.fragmenten > img {
+.fragmenten > img,
+.fragmenten > picture {
     width: 8vw;
 }
 
@@ -2204,7 +2250,9 @@ margin: 0;
 
 }
 
-.chapter3Intro>img{
+.chapter3Intro>picture,
+.chapter3Intro>img
+{
     height: 45vw;
     width: auto;
     margin: 0;
@@ -2318,6 +2366,7 @@ margin: 0;
 
 }
 
+.chapter3Intro>picture,
 .chapter3Intro>img{
     height: 32vw;
     width: auto;
@@ -2534,7 +2583,8 @@ margin: 0;
     margin: 2vw 0;
 }
 
-.fragmenten > img {
+.fragmenten > img,
+.fragmenten > picture {
     width: 5vw;
 }
 
