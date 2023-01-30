@@ -962,6 +962,7 @@ h3 > .beeld7TitelHigh2 {
 .beeld11 {
   text-align: center;
   margin: 10vh 0;
+  overflow-x: hidden;
 }
 
 .beeld11Titel {
