@@ -331,7 +331,7 @@ const controleerTest3 = (e) => {
     console.log("Je hebt verloren!");
     document.querySelector(".fragment" + nextAudio).src =
       "./assets/fragmentFout.png";
-    $feedback.innerText = feedbackFout[nextAudio];
+    $feedback.innerText = feedbackFout[audioTest3];
   }
   audioTest3 += 1;
   nextAudio += 1;
