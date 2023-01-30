@@ -1161,6 +1161,7 @@ h3 > .beeld11TitelHigh {
 }
 
 .buttonSchots {
+    margin-top: 4vh;
   color: var(--color-blue);
   border: var(--color-blue) 1.5vw solid;
   grid-column: 2;
@@ -1451,7 +1452,7 @@ footer > p {
 
 
 
-    .beeld13Tekst>.buttonSchots{
+    .buttonSchots{
         border: var(--color-blue) 1vw solid;
     }
 
@@ -1464,6 +1465,7 @@ footer > p {
 }
 
 @media screen and (min-width: 700px){
+
     .hamburger{
     height: 8.5vw;
 	width: 8.5vw;
@@ -1540,6 +1542,10 @@ justify-self: center;
 }
 }
 @media screen and (min-width: 800px) {
+
+    .buttonSchots{
+margin-top: 0;
+}
 
 
   .headerContent {
@@ -1826,6 +1832,8 @@ justify-self: center;
 }
 
 @media screen and (min-width: 1000px) {
+
+    
 
     .hamburger{
         display: none;
