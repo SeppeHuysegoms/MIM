@@ -133,18 +133,11 @@ const preload = async () => {
 const onProgress = () => {
   const relativeProgress = numImagesLoaded / imagePaths.length;
   const progressPercentage = Math.round(relativeProgress * 100);
-  console.log(
-    numImagesLoaded,
-    imagePaths.length,
-    relativeProgress,
-    progressPercentage
-  );
   $preloaderPercentage.textContent = `${progressPercentage}%`;
   $preloaderVisual.style.transform = `scale3d(1, ${relativeProgress}, 1)`;
 };
 
 const preloadComplete = async () => {
-  console.log("preload complete")
   document.documentElement.classList.remove("is-loading");
   document.querySelector("body").classList.remove("overflow-y-hidden");
   await delay(350);
@@ -266,7 +259,6 @@ const countClicks = () => {
 
 const startTimer = () => {
   timeTest1 += 0.5;
-  console.log(timeTest1);
   $time.innerHTML = timeTest1 + "sec.";
 
   if (timeTest1 === maxTimeTest1) {
@@ -303,7 +295,6 @@ const toggleMenu = () => {
 };
 
 const startTest3 = () => {
-  console.log("test3");
   document.querySelector(".buttonIers").style.display = "block";
   document.querySelector(".buttonSchots").style.display = "block";
 
@@ -326,9 +317,8 @@ const controleerTest3 = (e) => {
     document.querySelector(".fragment" + nextAudio).src =
       "./assets/fragmentJuist.png";
     $feedback.innerText = feedbackJuist[audioTest3];
-    console.log(feedbackJuist[audioTest3]);
+
   } else {
-    console.log("Je hebt verloren!");
     document.querySelector(".fragment" + nextAudio).src =
       "./assets/fragmentFout.png";
     $feedback.innerText = feedbackFout[audioTest3];
@@ -387,21 +377,16 @@ const checkPuzzel = () => {
 
   for (const child of $puzzel.children) {
     i += 1;
-    console.log(child.src);
-    console.log(i);
 
     if (child.src.includes("puzzelstuk" + i)) {
-      console.log("goed");
       goed += 1;
     } else {
-      console.log("fout");
       break;
     }
 
     if (goed == 9) {
       audioTest1Geslaagd.play();
       $puzzel.style.backgroundColor = "#6ad727";
-      console.log("Je hebt gewonnen!");
       document.querySelector(".beeld10>.instructies").innerText =
         "Je hebt de doedelzak gerepareerd!";
     }
