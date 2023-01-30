@@ -68,10 +68,12 @@ const init = () => {
     child.classList.add("onderdeelJS");
   }
   animatieBeeld2();
-    animatieBeeld51();
-    animatieBeeld5();
+  animatieChapter1();
+  animatieBeeld4();
+  animatieBeeld51();
+  animatieBeeld5();
+  animatieChapter12();
   animatieOnderdelen();
-
 
   document
     .querySelector(".buttonIers")
@@ -215,7 +217,7 @@ const controleerTest3 = (e) => {
 const touchStart = (e) => {
   if (kliks == 0) {
     kliks += 1;
-    console.log(e.currentTarget);
+
     huidigPuzzelStuk = e.currentTarget;
   } else {
     kliks += 1;
@@ -229,6 +231,7 @@ const touchStart = (e) => {
 
     huidigPuzzelStuk.src = nieuweImage;
     nieuwPuzzelStuk.src = huidigImage;
+
     checkPuzzel();
   }
 };
@@ -237,19 +240,26 @@ const checkPuzzel = () => {
   const $puzzel = document.querySelector(".test2");
   let i = 0;
   let goed = 0;
+
   for (const child of $puzzel.children) {
     i += 1;
+    console.log(child.src);
+    console.log(i);
 
-    if (child.src.indexOf(i) == -1) {
-      //console.log("fout");
-      break;
-    } else {
+    if (child.src.includes("puzzelstuk" + i)) {
       console.log("goed");
       goed += 1;
+    } else {
+      console.log("fout");
+      break;
     }
 
     if (goed == 9) {
+      audioTest1Geslaagd.play();
+      $puzzel.style.backgroundColor = "#6ad727";
       console.log("Je hebt gewonnen!");
+      document.querySelector(".beeld10>.instructies").innerText =
+        "Je hebt de doedelzak gerepareerd!";
     }
   }
 };
@@ -290,7 +300,7 @@ const animatieOnderdelen = () => {
         opacity: 0,
         ease: "sine.in",
       },
-      "<25"
+      "+=50"
     );
 
     tlOnderdelen.to(
@@ -300,7 +310,7 @@ const animatieOnderdelen = () => {
         opacity: 0,
         ease: "sine.in",
       },
-      "<35"
+      "+=15"
     );
     tlOnderdelen.to(
       ".onderdeel" + i + ">.onderdeelImageMask>img",
@@ -325,13 +335,13 @@ const animatieBeeld2 = () => {
 
       const tlbeeld2 = gsap.timeline({
         scrollTrigger: {
-          duration: 10,
+          duration: 5,
           trigger: ".beeld2",
           markers: true,
           toggleActions: "play none none reverse",
           pin: true,
           start: "bottom 100%",
-          end: "bottom 0%",
+          end: "bottom 90%",
           scrub: 1,
         },
       });
@@ -393,6 +403,90 @@ const animatieBeeld2 = () => {
     }
   );
 };
+const animatieChapter1 = () => {
+  let tlChapter1 = gsap.timeline({
+    scrollTrigger: {
+      duration: 100,
+      trigger: ".chapter1Intro",
+      markers: true,
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 90%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlChapter1.from(".chapter1Intro", {
+    duration: 5,
+    yPercent: 100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(".chapter1Image1", {
+    duration: 10,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(
+    ".chapter1Image2",
+    {
+      duration: 10,
+      xPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+
+  tlChapter1.from(".titelIntro1Down", {
+    duration: 20,
+    yPercent: 100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(
+    ".titelIntro1High",
+    {
+      duration: 20,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
+
+const animatieBeeld4 = () => {
+  let tlBeeld4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".beeld4Titel",
+      markers: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld4.from(".beeld4TitelHigh", {
+    duration: 5,
+    xPercent: 40,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlBeeld4.from(
+    ".beeld4TitelDown",
+    {
+      duration: 5,
+      xPercent: -40,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
 
 const animatieBeeld51 = () => {
   let tlBeeld51Image = gsap.timeline({
@@ -406,65 +500,100 @@ const animatieBeeld51 = () => {
     },
   });
 
-    tlBeeld51Image.from(".beeld5Image", {
-      duration: 20,
-      y: 100,
-      ease: "sine.in",
-    });
-       tlBeeld51Image.from(
-         ".beeld51Image",
-         {
-           duration: 20,
-           opacity:0,
-           ease: "sine.in",
-         },
-         "<"
-       );
-  }
-const animatieBeeld5 = () => {
-  let tlBeeld5Image = gsap.timeline(
+  tlBeeld51Image.from(".beeld5Image", {
+    duration: 20,
+    y: 100,
+    ease: "sine.in",
+  });
+  tlBeeld51Image.from(
+    ".beeld51Image",
     {
-      scrollTrigger: {
-        duration: 60,
-        trigger: ".beeld5",
-        pin: true,
-        markers: true,
-        toggleActions: "play none none reverse",
-        start: "bottom 100%",
-        end: "bottom 0%",
-        scrub: 1,
-      },
-    }
-    
+      duration: 20,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<"
   );
-   tlBeeld5Image.from(".beeld5Background", {
-     duration: 2,
-     opacity: 0.9,
-     ease: "sine.in",
-   });
-    tlBeeld5Image.from(
-      ".beeld5Tekst",
-      {
-        duration: 0.5,
-        scale: 0,
-        opacity: 0,
-        ease: "sine.in",
-      },
-      "<-0.05"
-    );
+};
+const animatieBeeld5 = () => {
+  let tlBeeld5Image = gsap.timeline({
+    scrollTrigger: {
+      duration: 60,
+      trigger: ".beeld5",
+      pin: true,
+      markers: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+  tlBeeld5Image.from(".beeld5Background", {
+    duration: 2,
+    opacity: 0.9,
+    ease: "sine.in",
+  });
+  tlBeeld5Image.from(
+    ".beeld5Tekst",
+    {
+      duration: 0.5,
+      scale: 0,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<-0.05"
+  );
 
-    tlBeeld5Image.from(".beeld5Tekst>h4", {
+  tlBeeld5Image.from(
+    ".beeld5Tekst>h4",
+    {
       duration: 0.3,
       y: -500,
       opacity: 0,
       ease: "sine.in",
-    },"<+0.25");
-        tlBeeld5Image.from(".beeld5Tekst>p", {
-          duration: 0.3,
-          y: 400,
-          opacity: 0,
-          ease: "sine.in",
-        }, "<");
+    },
+    "<+0.25"
+  );
+  tlBeeld5Image.from(
+    ".beeld5Tekst>p",
+    {
+      duration: 0.3,
+      y: 400,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<"
+  );
+};
+
+const animatieChapter12 = () => {
+  let tlChapter12 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".chapter12Titel",
+      markers: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlChapter12.from(".chapter12TitelHigh", {
+    duration: 5,
+    xPercent: 40,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter12.from(
+    ".chapter12TitelDown",
+    {
+      duration: 5,
+      xPercent: -40,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
 };
 
 init();

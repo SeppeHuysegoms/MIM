@@ -43,21 +43,31 @@
   }
 }
 
+.menu>li>a:hover, 
+.menuMobile>li>a:hover{
+    color: var(--color-green);
+}
+
+.taalMobile>p:hover{
+    cursor: pointer;
+    color: var(--color-green);
+}
+
 
 .test2 {
-    width: 37vw;
-    height: 37vw;
+    width: 60vw;
+    height: 60vw;
     background-color: var(--color-blue);
-    border: 0.5vw solid var(--color-green);
+    border: 0.51vw solid var(--color-green);
     margin: 5vh auto;
     display: flex;
     flex-wrap: wrap;
 }
 
 .test2 img {
-    width: 12vw;
-    height: 12vw;
-    border: 0.1vw solid var(--color-green);
+    width: 19.66vw;
+    height: 19.66vw;
+    border: 0.3vw solid var(--color-green);
 }
 
 
@@ -368,7 +378,7 @@ header {
   word-spacing: 100vw;
   margin: -4vh 0 0 3vh;
   overflow: hidden;
-  max-width: 60vw;
+  max-width: 70vw;
 }
 
 .headerIntro > span {
@@ -439,6 +449,7 @@ animation: revealIntro 1s cubic-bezier(.79,.4,.63,.84) 0s;
   background-size: 90vh;
   background-repeat: no-repeat;
   background-position: right;
+  overflow: hidden;
 }
 .chapter1Intro > h2 {
   justify-content: center;
@@ -1574,6 +1585,21 @@ justify-self: center;
     align-self: center;
   }
 
+  .test2 {
+    width: 37vw;
+    height: 37vw;
+    background-color: var(--color-blue);
+    border: 0.5vw solid var(--color-green);
+    margin: 5vh auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.test2 img {
+    width: 12vw;
+    height: 12vw;
+    border: 0.1vw solid var(--color-green);
+}
   .TitelIntro2Highlight {
     grid-row: 2;
     grid-column: 1/3;
