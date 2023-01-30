@@ -55,6 +55,7 @@ const init = () => {
   for (let i = 0; i < 9; i++) {
     let puzzelstuk = document.createElement("img");
     puzzelstuk.id = "puzzelstuk" + i.toString();
+    image.alt = "puzzelstuk van doedelzak";
     puzzelstuk.src = "./assets/puzzelstuk" + randomVolgorde.shift() + ".png";
 
     puzzelstuk.addEventListener("click", touchStart);
