@@ -10,6 +10,13 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
   </head>
   <body>
+        <div class="preloader">
+<div>
+Loading
+<span class="preloader__percentage"></span>
+</div>
+<div class="preloader__visual"></div>
+</div>
     <header>
       <div class="headerContent">
         <div class="h1Mask">
@@ -119,33 +126,19 @@
 
     <main>
       <section class="beeld2">
-        <picture class="beeld2Image1">
-          <source
-            sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
-            srcset="
-              assets/beeld21-340.avif   340w,
-              assets/beeld21-600.avif   600w,
-              assets/beeld21-1000.avif 1000w
-            "
-            type="image/avif"
-          />
-
-          <source
-            sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
-            srcset="
-              assets/beeld21-340.webp   340w,
-              assets/beeld21-600.webp   600w,
-              assets/beeld21-1000.webp 1000w
-            "
-            type="image/webp"
-          />
 
           <img
             class="beeld2Image1"
+                sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
+            srcset="
+              assets/beeld21-340.webp   340w,
+              assets/beeld21-600.webp   600w,
+              assets/beeld21-1000.webp 1000w,
+              assets/beeld21-2000.webp 2000w
+            "
             src="assets/beeld21.png"
             alt="Schotse troepen"
           />
-        </picture>
 
         <div class="beeld2Tekst">
           <h2 class="beeld2Titel">
@@ -162,33 +155,18 @@
           </p>
         </div>
 
-        <picture class="beeld2Image2">
-          <source
-            sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
-            srcset="
-              assets/beeld22-340.avif   340w,
-              assets/beeld22-600.avif   600w,
-              assets/beeld22-1000.avif 1000w
-            "
-            type="image/avif"
-          />
 
-          <source
-            sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
+          <img
+            class="beeld2Image2"
+                sizes="(max-width: 300px) 100vw,(max-width: 600px) 100vw, (max-width: 1000px) 80vw,  70vw "
             srcset="
               assets/beeld22-340.webp   340w,
               assets/beeld22-600.webp   600w,
               assets/beeld22-1000.webp 1000w
             "
-            type="image/webp"
-          />
-
-          <img
-            class="beeld2Image2"
             src="assets/beeld22.png"
             alt="Engelse troepen"
           />
-        </picture>
       </section>
 
       <section class="chapter1">
@@ -198,91 +176,49 @@
             <span class="highlightTitel titelIntro1High">wapen</span>
           </h2>
 
-          <picture class="chapter1Image1">
-            <source
-              sizes="(max-width: 1400px) 100vw, 100vw"
-              srcset="
-                assets/pijp270-300.avif   300w,
-                assets/pijp270-700.avif   700w,
-                assets/pijp270-1000.avif 1000w,
-                assets/pijp270-1400.avif 1400w
-              "
-              type="image/avif"
-            />
-            <source
-              sizes="(max-width: 1400px) 100vw, 100vw"
+            <img
+                   sizes="(max-width: 1400px) 100vw, 100vw"
               srcset="
                 assets/pijp270-300.webp   300w,
                 assets/pijp270-700.webp   700w,
                 assets/pijp270-1000.webp 1000w,
                 assets/pijp270-1400.webp 1400w
               "
-              type="image/webp"
-            />
-            <img
               class="chapter1Image1"
               src="assets/pijp270.png"
               alt="doedelzakpijp"
             />
-          </picture>
-          <picture class="chapter1Image2">
-            <source
-              sizes="(max-width: 1400px) 100vw, 100vw"
-              srcset="
-                assets/Intro1Zwaard-300.avif   300w,
-                assets/Intro1Zwaard-700.avif   700w,
-                assets/Intro1Zwaard-1000.avif 1000w,
-                assets/Intro1Zwaard-1400.avif 1400w
-              "
-              type="image/avif"
-            />
-            <source
-              sizes="(max-width: 1400px) 100vw, 100vw"
+            <img
+                     sizes="(max-width: 1400px) 100vw, 100vw"
               srcset="
                 assets/Intro1Zwaard-300.webp   300w,
                 assets/Intro1Zwaard-700.webp   700w,
                 assets/Intro1Zwaard-1000.webp 1000w,
                 assets/Intro1Zwaard-1400.webp 1400w
               "
-              type="image/webp"
-            />
-            <img
               class="chapter1Image2"
               src="assets/Intro1Zwaard.png"
               alt="zwaard"
             />
-          </picture>
         </div>
 
         <article class="chapter11">
           <div class="beeld4">
-            <picture class="beeld4Image">
-              <source
-                sizes="(max-width: 1400px) 100vw, 100vw"
-                srcset="
-                  assets/beeld4-300.avif   300w,
-                  assets/beeld4-700.avif   700w,
-                  assets/beeld4-1000.avif 1000w,
-                  assets/beeld4-1400.avif 1400w
-                "
-                type="image/avif"
-              />
-              <source
-                sizes="(max-width: 1400px) 100vw, 100vw"
+          
+
+              <img
+                    sizes="(max-width: 1400px) 100vw, 100vw"
                 srcset="
                   assets/beeld4-300.webp   300w,
                   assets/beeld4-700.webp   700w,
                   assets/beeld4-1000.webp 1000w,
                   assets/beeld4-1400.webp 1400w
                 "
-                type="image/webp"
-              />
-              <img
                 class="beeld4Image"
                 src="assets/beeld4.png"
                 alt="Doedelzakspeler die commando's stuurt"
               />
-            </picture>
+
 
             <div class="beeld4Tekst">
               <h3 class="beeld4Titel">
@@ -314,18 +250,8 @@
           </div>
           <div class="beeld5">
             <div class="beeld5Image">
-              <picture class="beeld51Image">
-                <source
-                  sizes="(max-width: 1400px) 100vw, 100vw"
-                  srcset="
-                    assets/beeld52-300.avif   300w,
-                    assets/beeld52-700.avif   700w,
-                    assets/beeld52-1000.avif 1000w,
-                    assets/beeld52-1400.avif 1400w
-                  "
-                  type="image/avif"
-                />
-                <source
+
+                <img
                   sizes="(max-width: 1400px) 100vw, 100vw"
                   srcset="
                     assets/beeld52-300.webp   300w,
@@ -333,15 +259,10 @@
                     assets/beeld52-1000.webp 1000w,
                     assets/beeld52-1400.webp 1400w
                   "
-                  type="image/webp"
-                />
-
-                <img
                   class="beeld51Image"
                   src="assets/beeld52.png"
                   alt="Luid geschreeuw van doedelzak"
                 />
-              </picture>
             </div>
             <div class="beeld5Background">
               <div class="beeld5Tekst">
@@ -529,63 +450,20 @@
           </div>
           <div class="beeld8">
             <div class="onderdeel onderdeelTrigger">
-              <picture class="onderdeelImage">
-                <source
-                  sizes="(max-width: 1400px) 100vw, 100vw"
-                  srcset="
-                    assets/onderdeelBasis-300.avif   300w,
-                    assets/onderdeelBasis-700.avif   700w,
-                    assets/onderdeelBasis-1000.avif 1000w,
-                    assets/onderdeelBasis-1400.avif 1400w
-                  "
-                  type="image/avif"
-                />
-                <source
-                  sizes="(max-width: 1400px) 100vw, 100vw"
-                  srcset="
-                    assets/onderdeelBasis-300.webp   300w,
-                    assets/onderdeelBasis-700.webp   700w,
-                    assets/onderdeelBasis-1000.webp 1000w,
-                    assets/onderdeelBasis-1400.webp 1400w
-                  "
-                  type="image/webp"
-                />
                 <img
                   class="onderdeelImage"
                   src="assets/onderdeelBasis.png"
                   alt="doedelzak"
                 />
-              </picture>
+
             </div>
             <section class="onderdeel onderdeel1">
               <div class="onderdeelImageMask">
-                <picture class="onderdeelImage">
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel2-300.avif   300w,
-                      assets/onderdeel2-700.avif   700w,
-                      assets/onderdeel2-1000.avif 1000w,
-                      assets/onderdeel2-1400.avif 1400w
-                    "
-                    type="image/avif"
-                  />
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel2-300.webp   300w,
-                      assets/onderdeel2-700.webp   700w,
-                      assets/onderdeel2-1000.webp 1000w,
-                      assets/onderdeel2-1400.webp 1400w
-                    "
-                    type="image/webp"
-                  />
                   <img
-                    class="onderdeelImage"
+                   class="onderdeelImage"
                     src="assets/onderdeel2.png"
                     alt="doedelzak"
                   />
-                </picture>
               </div>
               <div class="onderdeelTekst">
                 <h4>Blaaspijp</h4>
@@ -608,34 +486,12 @@
             /
             <section class="onderdeel onderdeel2">
               <div class="onderdeelImageMask">
-                <picture class="onderdeelImage">
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel3-300.avif   300w,
-                      assets/onderdeel3-700.avif   700w,
-                      assets/onderdeel3-1000.avif 1000w,
-                      assets/onderdeel3-1400.avif 1400w
-                    "
-                    type="image/avif"
-                  />
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel3-300.webp   300w,
-                      assets/onderdeel3-700.webp   700w,
-                      assets/onderdeel3-1000.webp 1000w,
-                      assets/onderdeel3-1400.webp 1400w
-                    "
-                    type="image/webp"
-                  />
+               
    <img
                   class="onderdeelImage"
                   src="assets/onderdeel3.png"
                   alt="doedelzak"
                 />
-                </picture>
-             
               </div>
               <div class="onderdeelTekst">
                 <h4>Tenor-drones</h4>
@@ -658,34 +514,11 @@
 
             <section class="onderdeel onderdeel3">
               <div class="onderdeelImageMask">
-                <picture class="onderdeelImage">
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel4-300.avif   300w,
-                      assets/onderdeel4-700.avif   700w,
-                      assets/onderdeel4-1000.avif 1000w,
-                      assets/onderdeel4-1400.avif 1400w
-                    "
-                    type="image/avif"
-                  />
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel4-300.webp   300w,
-                      assets/onderdeel4-700.webp   700w,
-                      assets/onderdeel4-1000.webp 1000w,
-                      assets/onderdeel4-1400.webp 1400w
-                    "
-                    type="image/webp"
-                  />
                     <img
                   class="onderdeelImage"
                   src="assets/onderdeel4.png"
                   alt="doedelzak"
                 />
-                </picture>
-              
               </div>
               <div class="onderdeelTekst">
                 <h4>Bas-drone</h4>
@@ -706,34 +539,11 @@
 
             <section class="onderdeel onderdeel4">
               <div class="onderdeelImageMask">
-
-                <picture class="onderdeelImage">
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel5-300.avif   300w,
-                      assets/onderdeel5-700.avif   700w,
-                      assets/onderdeel5-1000.avif 1000w,
-                      assets/onderdeel5-1400.avif 1400w
-                    "
-                    type="image/avif"
-                  />
-                  <source
-                    sizes="(max-width: 1400px) 100vw, 100vw"
-                    srcset="
-                      assets/onderdeel5-300.webp   300w,
-                      assets/onderdeel5-700.webp   700w,
-                      assets/onderdeel5-1000.webp 1000w,
-                      assets/onderdeel5-1400.webp 1400w
-                    "
-                    type="image/webp"
-                  />
                     <img
                   class="onderdeelImage"
                   src="assets/onderdeel5.png"
                   alt="doedelzak"
                 />
-                </picture>
               
               </div>
               <div class="onderdeelTekst">
@@ -810,11 +620,34 @@
           </picture>
 
           <article class="beeld9Deel1">
-            <img
+            <picture >
+              <source
+                sizes="(max-width: 1400px) 100vw, 100vw"
+                srcset="
+                  assets/beeld91-300.avif   300w,
+                  assets/beeld91-700.avif   700w,
+                  assets/beeld91-1000.avif 1000w,
+                  assets/beeld91-1400.avif 1400w
+                "
+                type="image/avif"
+              />
+              <source
+                sizes="(max-width: 1400px) 100vw, 100vw"
+                srcset="
+                  assets/beeld91-300.webp   300w,
+                  assets/beeld91-700.webp   700w,
+                  assets/beeld91-1000.webp 1000w,
+                  assets/beeld91-1400.webp 1400w
+                "
+                type="image/webp"
+              />
+    <img
               class="beeld9Deel1Image"
               src="assets/beeld91.png"
               alt="Man die aan het nadenken is"
             />
+            </picture>
+        
             <h4>Ten val</h4>
             <p>
               Na je snelle opleiding ben je nog volop bezig met alles te
@@ -826,16 +659,63 @@
 
           <article class="beeld9Deel2">
             <div class="beeld9Deel2Images">
-              <img
+
+              <picture >
+                <source
+                  sizes="(max-width: 1400px) 100vw, 100vw"
+                  srcset="
+                    assets/beeld92-300.avif   300w,
+                    assets/beeld92-700.avif   700w,
+                    assets/beeld92-1000.avif 1000w,
+                    assets/beeld92-1400.avif 1400w
+                  "
+                  type="image/avif"/>
+                <source
+                  sizes="(max-width: 1400px) 100vw, 100vw"
+                  srcset="
+                    assets/beeld92-300.webp   300w,
+                    assets/beeld92-700.webp   700w,
+                    assets/beeld92-1000.webp 1000w,
+                    assets/beeld92-1400.webp 1400w
+                  "
+                  type="image/webp"/>
+
+                 <img
                 class="beeld9Deel2Image"
                 src="assets/beeld92.png"
                 alt="Man die valt "
               />
-              <img
+              </picture>
+
+              <picture>
+                <source
+                  sizes="(max-width: 1400px) 100vw, 100vw"
+                  srcset="
+                    assets/beeld93-300.avif   300w,
+                    assets/beeld93-700.avif   700w,
+                    assets/beeld93-1000.avif 1000w,
+                    assets/beeld93-1400.avif 1400w
+                  "
+                  type="image/avif"
+                />
+                <source
+                  sizes="(max-width: 1400px) 100vw, 100vw"
+                  srcset="
+                    assets/beeld93-300.webp   300w,
+                    assets/beeld93-700.webp   700w,
+                    assets/beeld93-1000.webp 1000w,
+                    assets/beeld93-1400.webp 1400w
+                  "
+                  type="image/webp"
+                />
+                   <img
                 class="beeld9Deel2Image2"
                 src="assets/beeld93.png"
                 alt="doedelzak die valt"
               />
+              </picture>
+             
+           
             </div>
             <h4>Klein probleem</h4>
             <p>
@@ -861,6 +741,8 @@
       <section class="chapter3">
         <div class="chapter3Intro">
           <img
+          sizes="(max-width: 1400px) 100vw, 100vw"
+          srcset=" assets/chapter3Image-300.webp 300w, assets/chapter3Image-700.webp 700w, assets/chapter3Image-1000.webp 1000w, assets/chapter3Image-1400.webp 1400w"
             class="chapter3IntroImage"
             src="assets/chapter3Image.png"
             alt="doedelzakpijpen"
@@ -894,6 +776,7 @@
               <li>Constant "gezoem"</li>
             </ul>
             <div class="beeld12Images">
+
               <img
                 class="beeld12Image1"
                 src="assets/beeld11Helft1.png"
@@ -916,6 +799,8 @@
 
           <div class="beeld13">
             <img
+            sizes="(max-width: 1400px) 100vw, 100vw"
+            srcset=" assets/beeld131-300.webp 300w, assets/beeld131-700.webp 700w, assets/beeld131-1000.webp 1000w, assets/beeld131-1400.webp 1400w"
               class="beeld13Image1"
               src="assets/beeld131.png"
               alt="Oor dat eigenschappen raadt"
@@ -969,6 +854,8 @@
             </div>
 
             <img
+            sizes="(max-width: 1400px) 100vw, 100vw"
+            srcset=" assets/beeld132-300.webp 300w, assets/beeld132-700.webp 700w, assets/beeld132-1000.webp 1000w, assets/beeld132-1400.webp 1400w"
               class="beeld13Image2"
               src="assets/beeld132.png"
               alt="Oor dat eigenschappen raadt"
@@ -979,6 +866,8 @@
 
       <section class="beeld14">
         <img
+        sizes="(max-width: 1400px) 100vw, 100vw"
+        srcset=" assets/beeld141-300.webp 300w, assets/beeld141-700.webp 700w, assets/beeld141-1000.webp 1000w, assets/beeld141-1400.webp 1400w"
           class="beeld14Image1"
           src="assets/beeld141.png"
           alt="Schotse troepen die aanvallen"
@@ -1000,6 +889,8 @@
         </p>
 
         <img
+        sizes="(max-width: 1400px) 100vw, 100vw"
+        srcset=" assets/beeld142-300.webp 300w, assets/beeld142-700.webp 700w, assets/beeld142-1000.webp 1000w, assets/beeld142-1400.webp 1400w"
           class="beeld14Image2"
           src="assets/beeld142.png"
           alt="Engelse troepen die verdedigen"
@@ -1008,6 +899,8 @@
 
       <section class="beeld15">
         <img
+        sizes="(max-width: 1400px) 100vw, 100vw"
+        srcset=" assets/beeld151-300.webp 300w, assets/beeld151-700.webp 700w, assets/beeld151-1000.webp 1000w, assets/beeld151-1400.webp 1400w"
           class="beeld15Image1"
           src="assets/beeld151.png"
           alt="ruitjespatroon"
@@ -1038,6 +931,8 @@
         </div>
 
         <img
+        sizes="(max-width: 1400px) 100vw, 100vw"
+        srcset=" assets/beeld152-300.webp 300w, assets/beeld152-700.webp 700w, assets/beeld152-1000.webp 1000w, assets/beeld152-1400.webp 1400w"
           class="beeld15Image2"
           src="assets/beeld152.png"
           alt="ruitjespatroon"
@@ -1051,15 +946,23 @@
       <div class="footerSocialmedia">
         <a href="https://www.facebook.com/MIMBrussels/">
           <img
+          sizes="(max-width: 1400px) 100vw, 100vw"
+          srcset=" assets/facebook-300.webp 300w, assets/facebook-700.webp 700w, assets/facebook-1000.webp 1000w, assets/facebook-1400.webp 1400w"
             class="socialImage"
             src="assets/facebook.png"
             alt="facebook logo"
         /></a>
         <a href="https://www.instagram.com/mimbrussels/"
-          ><img class="socialImage" src="assets/insta.png" alt="instagram logo"
+          ><img 
+          sizes="(max-width: 1400px) 100vw, 100vw"
+          srcset=" assets/insta-300.webp 300w, assets/insta-700.webp 700w, assets/insta-1000.webp 1000w, assets/insta-1400.webp 1400w"
+          class="socialImage" src="assets/insta.png" alt="instagram logo"
         /></a>
         <a href="https://twitter.com/mimbrussels"
-          ><img class="socialImage" src="assets/twitter.png" alt="twitter logo"
+          ><img 
+          sizes="(max-width: 1400px) 100vw, 100vw"
+          srcset=" assets/twitter-300.webp 300w, assets/twitter-700.webp 700w, assets/twitter-1000.webp 1000w, assets/twitter-1400.webp 1400w"
+          class="socialImage" src="assets/twitter.png" alt="twitter logo"
         /></a>
       </div>
     </footer>
