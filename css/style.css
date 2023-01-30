@@ -48,6 +48,10 @@
     color: var(--color-green);
 }
 
+.button>a:hover{
+    color: var(--color-white);
+}
+
 .taalMobile>p:hover{
     cursor: pointer;
     color: var(--color-green);
