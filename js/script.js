@@ -291,7 +291,6 @@ const animatieOnderdelen = () => {
   let tlOnderdelen = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld8",
-      : true,
       toggleActions: "play none none reverse",
       pin: true,
       start: "bottom 100%",
