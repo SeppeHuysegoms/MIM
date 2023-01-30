@@ -22,7 +22,7 @@ const feedbackJuist = [
   "Hoor dat mooie Schotse geluid",
 ];
 const feedbackFout = [
-  "Aj verkeerd gegokt!",
+  "Ai verkeerd gegokt!",
   "Nee dit was een signaal van ons",
   "Ze hebben je weer beetgenomen",
   "Dit was duidelijk een Iers signaal",
@@ -68,10 +68,35 @@ const init = () => {
     child.classList.add("onderdeelJS");
   }
   animatieBeeld2();
-    animatieBeeld51();
-    animatieBeeld5();
-  animatieOnderdelen();
+  animatieChapter1();
+  animatieBeeld4();
+  animatieBeeld51();
+  animatieBeeld5();
+  animatieChapter12();
+  let width = screen.width;
+  if (width > 1400) {
+    animatieChapter2(110);
+  } else {
+    animatieChapter2(85);
+  }
 
+  animatieBeeld7();
+  animatieOnderdelen();
+  animatieBeeld9();
+  if (width > 1400) {
+    animatieChapter3(100);
+  } else {
+    animatieChapter3(85);
+  }
+  animatieBeeld11();
+  animatieBeeld13();
+
+  if (width > 500) {
+    animatieBeeld14(120, 30, 55);
+  } else {
+    animatieBeeld14(115, 40, 100);
+  }
+  animatieBeeld15();
 
   document
     .querySelector(".buttonIers")
@@ -215,7 +240,7 @@ const controleerTest3 = (e) => {
 const touchStart = (e) => {
   if (kliks == 0) {
     kliks += 1;
-    console.log(e.currentTarget);
+
     huidigPuzzelStuk = e.currentTarget;
   } else {
     kliks += 1;
@@ -229,6 +254,7 @@ const touchStart = (e) => {
 
     huidigPuzzelStuk.src = nieuweImage;
     nieuwPuzzelStuk.src = huidigImage;
+
     checkPuzzel();
   }
 };
@@ -237,19 +263,26 @@ const checkPuzzel = () => {
   const $puzzel = document.querySelector(".test2");
   let i = 0;
   let goed = 0;
+
   for (const child of $puzzel.children) {
     i += 1;
+    console.log(child.src);
+    console.log(i);
 
-    if (child.src.indexOf(i) == -1) {
-      //console.log("fout");
-      break;
-    } else {
+    if (child.src.includes("puzzelstuk" + i)) {
       console.log("goed");
       goed += 1;
+    } else {
+      console.log("fout");
+      break;
     }
 
     if (goed == 9) {
+      audioTest1Geslaagd.play();
+      $puzzel.style.backgroundColor = "#6ad727";
       console.log("Je hebt gewonnen!");
+      document.querySelector(".beeld10>.instructies").innerText =
+        "Je hebt de doedelzak gerepareerd!";
     }
   }
 };
@@ -258,18 +291,18 @@ const animatieOnderdelen = () => {
   let tlOnderdelen = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld8",
-      markers: true,
+      : true,
       toggleActions: "play none none reverse",
       pin: true,
       start: "bottom 100%",
-      end: "bottom 0%",
+      end: "bottom -30%",
       scrub: 1,
     },
   });
 
   for (let i = 1; i < 6; i++) {
     tlOnderdelen.from(".onderdeel" + i + ">.onderdeelImageMask", {
-      duration: 25,
+      duration: 100,
       yPercent: 100,
       ease: "sine.in",
     });
@@ -277,7 +310,7 @@ const animatieOnderdelen = () => {
     tlOnderdelen.from(
       ".onderdeel" + i + ">.onderdeelImageMask>img",
       {
-        duration: 25,
+        duration: 100,
         yPercent: -100,
         ease: "sine.in",
       },
@@ -286,30 +319,30 @@ const animatieOnderdelen = () => {
     tlOnderdelen.from(
       ".onderdeel" + i + ">.onderdeelTekst",
       {
-        duration: 20,
+        duration: 150,
         opacity: 0,
         ease: "sine.in",
       },
-      "<25"
+      "+=100"
     );
 
     tlOnderdelen.to(
       ".onderdeel" + i + ">.onderdeelTekst",
       {
-        duration: 20,
+        duration: 100,
         opacity: 0,
         ease: "sine.in",
       },
-      "<35"
+      "+=100"
     );
     tlOnderdelen.to(
       ".onderdeel" + i + ">.onderdeelImageMask>img",
       {
-        duration: 20,
+        duration: 100,
         opacity: 0,
         ease: "sine.in",
       },
-      "<5"
+      "+=15"
     );
   }
 };
@@ -325,24 +358,39 @@ const animatieBeeld2 = () => {
 
       const tlbeeld2 = gsap.timeline({
         scrollTrigger: {
-          duration: 10,
+          duration: 5,
           trigger: ".beeld2",
-          markers: true,
           toggleActions: "play none none reverse",
           pin: true,
           start: "bottom 100%",
-          end: "bottom 0%",
+          end: "bottom 70%",
           scrub: 1,
         },
       });
+
+        tlbeeld2.from(".beeld2TitelHigh", {
+          duration: 10,
+          xPercent: 40,
+          opacity: 0,
+          ease: "power4.out",
+        });
+        tlbeeld2.from(
+          ".beeld2TitelDown",
+          {
+            duration: 10,
+            xPercent: -40,
+            opacity: 0,
+            ease: "power4.out",
+          },
+          "<5"
+        );
 
       tlbeeld2.to(
         ".beeld2Tekst",
         {
           duration: 10,
           opacity: 0,
-        },
-        "<5"
+        },"+50"
       );
 
       tlbeeld2.to(
@@ -393,12 +441,265 @@ const animatieBeeld2 = () => {
     }
   );
 };
+const animatieChapter1 = () => {
+  let tlChapter1 = gsap.timeline({
+    scrollTrigger: {
+      duration: 100,
+      trigger: ".chapter1Intro",
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 90%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlChapter1.from(".chapter1Intro", {
+    duration: 5,
+    yPercent: 100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(".chapter1Image1", {
+    duration: 10,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(
+    ".chapter1Image2",
+    {
+      duration: 10,
+      xPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+
+  tlChapter1.from(".titelIntro1Down", {
+    duration: 20,
+    yPercent: 100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter1.from(
+    ".titelIntro1High",
+    {
+      duration: 20,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
+
+const animatieChapter2 = (start) => {
+  let tlChapter2 = gsap.timeline({
+    scrollTrigger: {
+      duration: 100,
+      trigger: ".chapter2Intro",
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom " + start + "%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlChapter2.from(".chapter2Intro", {
+    duration: 5,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter2.from(".chapter2IntroImage", {
+    duration: 10,
+    xPercent: 100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+
+  tlChapter2.from(
+    ".TitelIntro2Down",
+    {
+      duration: 20,
+      yPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+  tlChapter2.from(
+    ".TitelIntro2Highlight",
+    {
+      duration: 20,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<1"
+  );
+};
+const animatieChapter3 = (start) => {
+  let tlChapter3 = gsap.timeline({
+    scrollTrigger: {
+      duration: 100,
+      trigger: ".chapter3Intro",
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom " + start + "%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+  tlChapter3.from(".chapter3Intro", {
+    duration: 5,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter3.from(
+    ".chapter3IntroImage",
+    {
+      duration: 10,
+      xPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+
+  tlChapter3.from(
+    ".chapter3Intro>h2",
+    {
+      duration: 30,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+  tlChapter3.from(
+    ".TitelIntro3Highlight",
+    {
+      duration: 20,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
+
+const animatieBeeld7 = () => {
+  let tlBeeld7 = gsap.timeline({
+    scrollTrigger: {
+      duration: 100,
+      trigger: ".beeld7",
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld7.from(".beeld7Image1", {
+    duration: 5,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlBeeld7.from(
+    ".beeld7Image2",
+    {
+      duration: 5,
+      xPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+
+  tlBeeld7.from(
+    ".beeld7TitelHigh",
+    {
+      duration: 20,
+      yPercent: -100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+  tlBeeld7.from(
+    ".beeld7TitelHigh2",
+    {
+      duration: 20,
+      yPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<1"
+  );
+
+  tlBeeld7.from(
+    ".beeld7TitelDown",
+    {
+      duration: 20,
+      yPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<1"
+  );
+
+  tlBeeld7.from(
+    ".beeld7Tekst>p",
+    {
+      duration: 20,
+      yPercent: 100,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<1"
+  );
+};
+
+const animatieBeeld4 = () => {
+  let tlBeeld4 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".beeld4Titel",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld4.from(".beeld4TitelHigh", {
+    duration: 5,
+    xPercent: 40,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlBeeld4.from(
+    ".beeld4TitelDown",
+    {
+      duration: 5,
+      xPercent: -40,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
 
 const animatieBeeld51 = () => {
   let tlBeeld51Image = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld5Image",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 150%",
       end: "bottom 100%",
@@ -406,65 +707,328 @@ const animatieBeeld51 = () => {
     },
   });
 
-    tlBeeld51Image.from(".beeld5Image", {
-      duration: 20,
-      y: 100,
-      ease: "sine.in",
-    });
-       tlBeeld51Image.from(
-         ".beeld51Image",
-         {
-           duration: 20,
-           opacity:0,
-           ease: "sine.in",
-         },
-         "<"
-       );
-  }
-const animatieBeeld5 = () => {
-  let tlBeeld5Image = gsap.timeline(
+  tlBeeld51Image.from(".beeld5Image", {
+    duration: 20,
+    y: 100,
+    ease: "sine.in",
+  });
+  tlBeeld51Image.from(
+    ".beeld51Image",
     {
+      duration: 20,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<"
+  );
+};
+const animatieBeeld5 = () => {
+  let tlBeeld5Image = gsap.timeline({
+    scrollTrigger: {
+      duration: 60,
+      trigger: ".beeld5",
+      pin: true,
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+  tlBeeld5Image.from(".beeld5Background", {
+    duration: 2,
+    opacity: 0.9,
+    ease: "sine.in",
+  });
+  tlBeeld5Image.from(
+    ".beeld5Tekst",
+    {
+      duration: 0.5,
+      scale: 0,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<-0.05"
+  );
+
+  tlBeeld5Image.from(
+    ".beeld5Tekst>h4",
+    {
+      duration: 0.3,
+      y: -500,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<+0.25"
+  );
+  tlBeeld5Image.from(
+    ".beeld5Tekst>p",
+    {
+      duration: 0.3,
+      y: 400,
+      opacity: 0,
+      ease: "sine.in",
+    },
+    "<"
+  );
+};
+
+const animatieChapter12 = () => {
+  let tlChapter12 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".chapter12Titel",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlChapter12.from(".chapter12TitelHigh", {
+    duration: 5,
+    xPercent: 40,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlChapter12.from(
+    ".chapter12TitelDown",
+    {
+      duration: 5,
+      xPercent: -40,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<2"
+  );
+};
+
+const animatieBeeld9 = () => {
+  let tlBeeld9 = gsap.timeline({
+    scrollTrigger: {
+      duration: 60,
+      trigger: ".beeld9Image1",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 0%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld9.from(".beeld9Image1", {
+    duration: 20,
+    opacity: 0,
+    scaleY: 0,
+  });
+
+  let tlBeeld92 = gsap.timeline({
+    scrollTrigger: {
+      duration: 60,
+      trigger: ".beeld9Image2",
+      toggleActions: "play none none reverse",
+      start: "bottom 120%",
+      end: "bottom2 0%",
+      scrub: 1,
+    },
+  });
+  tlBeeld92.from(".beeld9Image2", {
+    duration: 20,
+    opacity: 0,
+    scaleY: 0,
+  });
+
+  let tlBeeld9Image2 = gsap.timeline({
+    scrollTrigger: {
+      duration: 60,
+      trigger: ".beeld9Deel2",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 80%",
+      scrub: 1,
+    },
+  });
+  tlBeeld9Image2.from(".beeld9Deel2Image", {
+    duration: 20,
+    rotate: -20,
+  });
+
+  tlBeeld9Image2.from(
+    ".beeld9Deel2Image2",
+    {
+      duration: 25,
+      rotate: -360,
+      xPercent: -150,
+
+      scale: 0.5,
+    },
+    "<"
+  );
+};
+
+const animatieBeeld13 = () => {
+  let tlBeeld13Image1 = gsap.timeline({
+    scrollTrigger: {
+      duration: 20,
+      trigger: ".beeld13Image1",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 50%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld13Image1.from(".beeld13Image1", {
+    duration: 20,
+    xPercent: 100,
+  });
+
+  let tlBeeld13Image2 = gsap.timeline({
+    scrollTrigger: {
+      duration: 20,
+      trigger: ".beeld13Image2",
+      toggleActions: "play none none reverse",
+      start: "bottom 120%",
+      end: "bottom 90%",
+      scrub: 1,
+    },
+  });
+
+  tlBeeld13Image2.from(".beeld13Image2", {
+    duration: 20,
+    xPercent: -100,
+  });
+};
+
+const animatieBeeld14 = (start, X, Y) => {
+
+
+        let tlBeeld14 = gsap.timeline({
+          scrollTrigger: {
+            duration: 20,
+            trigger: ".beeld14",
+            pin: true,
+            toggleActions: "play none none reverse",
+            start: "bottom " + start + "%",
+            end: "bottom 0%",
+            scrub: 1,
+          },
+        });
+
+        tlBeeld14.from(".beeld14Image1", {
+          scale: 1.5,
+          duration: 20,
+          xPercent: -X,
+          yPercent: Y,
+        });
+
+        tlBeeld14.from(
+          ".beeld14Image2",
+          {
+            scale: 1.5,
+            duration: 20,
+            yPercent: -Y,
+          },
+          "<"
+        );
+
+        tlBeeld14.from(
+          ".beeld14>h2",
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 20,
+          },
+          "<+10"
+        );
+        tlBeeld14.from(
+          ".beeld14>p",
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 20,
+          },
+          "<"
+        );
+};
+
+const animatieBeeld11 = () => {
+
+    let tlBeeld11 = gsap.timeline({
       scrollTrigger: {
-        duration: 60,
-        trigger: ".beeld5",
-        pin: true,
-        markers: true,
+        trigger: ".beeld11Titel",
         toggleActions: "play none none reverse",
         start: "bottom 100%",
         end: "bottom 0%",
         scrub: 1,
       },
-    }
-    
-  );
-   tlBeeld5Image.from(".beeld5Background", {
-     duration: 2,
-     opacity: 0.9,
-     ease: "sine.in",
+    });
+   tlBeeld11.from(".beeld11TitelHigh", {
+     duration: 10,
+     xPercent: 40,
+     opacity: 0,
+     ease: "power4.out",
    });
-    tlBeeld5Image.from(
-      ".beeld5Tekst",
-      {
-        duration: 0.5,
-        scale: 0,
-        opacity: 0,
-        ease: "sine.in",
-      },
-      "<-0.05"
-    );
+   tlBeeld11.from(
+     ".beeld11TitelDown",
+     {
+       duration: 10,
+       xPercent: -40,
+       opacity: 0,
+       ease: "power4.out",
+     },
+     "<5"
+   );
+}
 
-    tlBeeld5Image.from(".beeld5Tekst>h4", {
-      duration: 0.3,
-      y: -500,
+const animatieBeeld15 = () => {
+  let tlBeeld15 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".beeld15Tekst",
+      toggleActions: "play none none reverse",
+      start: "bottom 100%",
+      end: "bottom 60%",
+      scrub: 1,
+    },
+  });
+  tlBeeld15.from(".beeld15Image1", {
+    duration: 10,
+    xPercent: -100,
+    opacity: 0,
+    ease: "power4.out",
+  });
+
+    tlBeeld15.from(".beeld15Image2", {
+      duration: 10,
+      xPercent: 100,
       opacity: 0,
-      ease: "sine.in",
-    },"<+0.25");
-        tlBeeld5Image.from(".beeld5Tekst>p", {
-          duration: 0.3,
-          y: 400,
-          opacity: 0,
-          ease: "sine.in",
-        }, "<");
+      ease: "power4.out",
+    },"<");
+  
+  tlBeeld15.from(".beeld15TitelHigh", {
+    duration: 10,
+    xPercent: 40,
+    opacity: 0,
+    ease: "power4.out",
+  });
+  tlBeeld15.from(
+    ".beeld15TitelDown",
+    {
+      duration: 10,
+      xPercent: -40,
+      opacity: 0,
+      ease: "power4.out",
+    },
+    "<5"
+  );
+
+   tlBeeld15.from(
+     ".beeld15Tekst",
+     {
+       duration: 10,
+       yPercent: -40,
+       opacity: 0,
+       ease: "power4.out",
+     },
+     "+5"
+   );
 };
 
 init();
