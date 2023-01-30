@@ -291,7 +291,7 @@ const animatieOnderdelen = () => {
   let tlOnderdelen = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld8",
-      markers: true,
+      : true,
       toggleActions: "play none none reverse",
       pin: true,
       start: "bottom 100%",
@@ -360,7 +360,6 @@ const animatieBeeld2 = () => {
         scrollTrigger: {
           duration: 5,
           trigger: ".beeld2",
-          markers: true,
           toggleActions: "play none none reverse",
           pin: true,
           start: "bottom 100%",
@@ -447,7 +446,6 @@ const animatieChapter1 = () => {
     scrollTrigger: {
       duration: 100,
       trigger: ".chapter1Intro",
-      markers: true,
       pin: true,
       toggleActions: "play none none reverse",
       start: "bottom 90%",
@@ -502,7 +500,6 @@ const animatieChapter2 = (start) => {
     scrollTrigger: {
       duration: 100,
       trigger: ".chapter2Intro",
-      markers: true,
       pin: true,
       toggleActions: "play none none reverse",
       start: "bottom " + start + "%",
@@ -550,7 +547,6 @@ const animatieChapter3 = (start) => {
     scrollTrigger: {
       duration: 100,
       trigger: ".chapter3Intro",
-      markers: true,
       pin: true,
       toggleActions: "play none none reverse",
       start: "bottom " + start + "%",
@@ -602,7 +598,6 @@ const animatieBeeld7 = () => {
     scrollTrigger: {
       duration: 100,
       trigger: ".beeld7",
-      markers: true,
       pin: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
@@ -676,7 +671,6 @@ const animatieBeeld4 = () => {
   let tlBeeld4 = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld4Titel",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 0%",
@@ -706,7 +700,6 @@ const animatieBeeld51 = () => {
   let tlBeeld51Image = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld5Image",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 150%",
       end: "bottom 100%",
@@ -735,7 +728,6 @@ const animatieBeeld5 = () => {
       duration: 60,
       trigger: ".beeld5",
       pin: true,
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 0%",
@@ -784,7 +776,6 @@ const animatieChapter12 = () => {
   let tlChapter12 = gsap.timeline({
     scrollTrigger: {
       trigger: ".chapter12Titel",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 0%",
@@ -815,7 +806,6 @@ const animatieBeeld9 = () => {
     scrollTrigger: {
       duration: 60,
       trigger: ".beeld9Image1",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 0%",
@@ -833,7 +823,6 @@ const animatieBeeld9 = () => {
     scrollTrigger: {
       duration: 60,
       trigger: ".beeld9Image2",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 120%",
       end: "bottom2 0%",
@@ -850,7 +839,6 @@ const animatieBeeld9 = () => {
     scrollTrigger: {
       duration: 60,
       trigger: ".beeld9Deel2",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 80%",
@@ -880,7 +868,6 @@ const animatieBeeld13 = () => {
     scrollTrigger: {
       duration: 20,
       trigger: ".beeld13Image1",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 50%",
@@ -897,7 +884,6 @@ const animatieBeeld13 = () => {
     scrollTrigger: {
       duration: 20,
       trigger: ".beeld13Image2",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 120%",
       end: "bottom 90%",
@@ -919,7 +905,6 @@ const animatieBeeld14 = (start, X, Y) => {
             duration: 20,
             trigger: ".beeld14",
             pin: true,
-            markers: true,
             toggleActions: "play none none reverse",
             start: "bottom " + start + "%",
             end: "bottom 0%",
@@ -969,7 +954,6 @@ const animatieBeeld11 = () => {
     let tlBeeld11 = gsap.timeline({
       scrollTrigger: {
         trigger: ".beeld11Titel",
-        markers: true,
         toggleActions: "play none none reverse",
         start: "bottom 100%",
         end: "bottom 0%",
@@ -998,7 +982,6 @@ const animatieBeeld15 = () => {
   let tlBeeld15 = gsap.timeline({
     scrollTrigger: {
       trigger: ".beeld15Tekst",
-      markers: true,
       toggleActions: "play none none reverse",
       start: "bottom 100%",
       end: "bottom 60%",
