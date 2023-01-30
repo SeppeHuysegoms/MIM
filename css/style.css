@@ -89,6 +89,10 @@
     color: var(--color-green);
 }
 
+.menu>li>a:visited{
+    color: var(--color-blue);
+}
+
 .beeld15Tekst>a:hover{
     color: var(--color-white);
 }
